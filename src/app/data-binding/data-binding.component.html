@@ -7,6 +7,38 @@
     <p>{{2 + getValor()}}</p>
     <p>{{true && getTrue()}}</p>
     <p><img src="{{url}}"></p>
-    <p><img [src]="url"></p>
-    <p><img bind-src="url"></p>
+    <!-- <p><img [src]="url"></p> -->
+    <!-- <p><img bind-src="url"></p> -->
+</section>
+<section>
+    <article>
+        <h3>Class e Style</h3>
+        <div>
+            Selecione uma classe:
+            <select #class (change)="0">
+                <option value="alert-success">Sucesso</option>
+                <option value="alert-info">Info</option>
+                <option value="alert-warning">Alerta</option>
+                <option value="alert-danger">Erro</option>
+            </select>
+            <br><br>
+            
+            <div class="alert {{class.value}}" role="alert">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium quia libero illo saepe sapiente animi modi. Maxime accusamus unde ipsa repellendus ab saepe, amet quisquam, voluptas sunt possimus doloribus vero?</div>
+
+            <div class="alert" role="alert"
+                [class.alert-success]="class.value == 'alert-success'">Sucesso</div>
+             <div class="alert" role="alert"
+                [class.alert-info]="class.value == 'alert-info'">Info</div>
+                <div class="alert" role="alert"
+                [class.alert-warning]="class.value == 'alert-warning'">Alerta</div>
+                <div class="alert" role="alert"
+                [class.alert-danger]="class.value == 'alert-danger'">Erro</div>
+
+                <div class="alert alert-danger" role="alert"
+                [style.display]="class.value == 'alert-danger' ? 'block':'none'">
+                Texto de erro!
+            </div>
+            
+        </div>
+    </article>
 </section>

@@ -9,7 +9,7 @@ export class DataBindingComponent implements OnInit {
 
   data:any = 'qualquer coisa';
   true:boolean = true;
-  url = "http://lorempixel.com.br/200/200/?1";
+  url = "http://lorempixel.com.br/100/100/?1";
 
   getValor(){
     return 5;
