@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CursosComponent implements OnInit {
 
-  constructor() { }
+  nomePortal:any;
+  cursos = ['java','ruby','c#'] 
+  constructor() { 
+    this.nomePortal = "https://tntsports.com.br/futebolbrasileiro/Confira-o-ranking-de-titulos-nacionais-e-internacionais-no-futebol-brasileiro-20220304-0003.html"; 
+  }
 
   ngOnInit(): void {
   }
