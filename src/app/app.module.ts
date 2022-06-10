@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 
 import { CursosModule } from './cursos/cursos.module';
 import { FirtComponentComponent } from './firt-component/firt-component.component';
+import { DataBindingComponent } from './data-binding/data-binding.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirtComponentComponent
+    FirtComponentComponent,
+    DataBindingComponent
   ],
   imports: [
     BrowserModule,
