@@ -1,0 +1,17 @@
+<section>
+    <article>
+        <h3>Two-way data binding</h3>
+        <div>
+            <input type="text"
+            [(ngModel)]="nome">
+            <p>Local: {{nome}}</p>
+            
+            <h3>Two way em Objetos</h3>
+
+            <input type="text" [(ngModel)]="pessoa.nome">
+            <input type="text" [(ngModel)]="pessoa.idade">
+            <p>Meu nome é {{pessoa.nome}} e minha idade é {{pessoa.idade}}</p>
+            
+        </div>
+    </article>
+</section>
