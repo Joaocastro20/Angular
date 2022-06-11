@@ -10,12 +10,29 @@ export class DataBindingComponent implements OnInit {
   data:any = 'qualquer coisa';
   true:boolean = true;
   url = "http://lorempixel.com.br/100/100/?1";
+  valorAtual:string = '';
+  valoSalvo:any
+  varMouse:boolean = false;
 
   getValor(){
     return 5;
   }
   getTrue(){
     return true;
+  }
+  botaoClicado(){
+    alert('clicou');
+  }
+  onKeyUp(evento:KeyboardEvent){
+    console.log;
+    this.valorAtual = ((<HTMLInputElement>evento.target).value);
+    
+  }
+  salvarValor(valor:any){
+    this.valoSalvo = valor;
+  }
+  onMouseOver(){
+    this.varMouse = !this.varMouse;
   }
 
   constructor() { }
