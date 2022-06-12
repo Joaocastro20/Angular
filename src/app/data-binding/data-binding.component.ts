@@ -13,6 +13,7 @@ export class DataBindingComponent implements OnInit {
   valorAtual:string = '';
   valoSalvo:any
   varMouse:boolean = false;
+  nomeDoCurso:string = 'angular';
   nome:any = 'testetwo-way';
   pessoa:any ={
     nome: 'mary',
