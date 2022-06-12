@@ -11,6 +11,7 @@ import { FirtComponentComponent } from './firt-component/firt-component.componen
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { FormsModule } from '@angular/forms';
 import { InputPropertyComponent } from './input-property/input-property.component';
+import { OutputPropertyComponent } from './output-property/output-property.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { InputPropertyComponent } from './input-property/input-property.componen
     AppComponent,
     FirtComponentComponent,
     DataBindingComponent,
-    InputPropertyComponent
+    InputPropertyComponent,
+    OutputPropertyComponent
   ],
   imports: [
     BrowserModule,
