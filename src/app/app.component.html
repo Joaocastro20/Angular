@@ -1,3 +1,6 @@
 <app-firt-component></app-firt-component>
 <app-cursos></app-cursos>
 <app-data-binding></app-data-binding>
+<app-ciclo [valorInicial]="valor" *ngIf="!deletar"></app-ciclo>
+<button class="btn btn-primary" (click)="mudarValor()">Adicionar</button>
+<button class="btn btn-primary" (click)="destruirCiclo()">Destruir</button>
