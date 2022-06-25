@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { InputPropertyComponent } from './input-property/input-property.component';
 import { OutputPropertyComponent } from './output-property/output-property.component';
 import { CicloComponent } from './ciclo/ciclo.component';
+import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CicloComponent } from './ciclo/ciclo.component';
     DataBindingComponent,
     InputPropertyComponent,
     OutputPropertyComponent,
-    CicloComponent
+    CicloComponent,
+    DiretivaNgifComponent
   ],
   imports: [
     BrowserModule,

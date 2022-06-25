@@ -1,0 +1,28 @@
+<h5>NGIF</h5>
+<div *ngIf="cursos.length > 0">
+    Lista
+</div>
+<div *ngIf="cursos.length == 0">
+    Nao ha itens na lista
+</div>
+<div *ngIf="mostrarC">
+    apareceu!
+</div>
+<div *ngIf="!mostrarC">
+    sumiu!
+</div>
+<br>
+
+<button (click)="mudarValorMostrar()"
+class="btn btn-primary">
+Botao ngif
+</button>
+<br>
+
+<h5>Usar hidden como alternativa</h5>
+<div [hidden]="!mostrarC">
+    apareceu!
+</div>
+<div [hidden]="mostrarC">
+    sumiu!
+</div>
