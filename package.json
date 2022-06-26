@@ -21,6 +21,7 @@
     "@angular/router": "^14.0.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.2.0-beta1",
+    "bootstrap-icons": "^1.8.3",
     "ng2-bootstrap": "^0.53.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
