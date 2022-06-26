@@ -1,0 +1,17 @@
+<h5>ngclass</h5>
+<button (click)="mudarFavorito()">
+<i class="bi bi-star"
+[class.bi-star]="!meuFavorito"
+[class.bi-star-fill]="meuFavorito"
+></i></button>
+
+<h5>utilizando "ngclass"</h5>
+<button (click)="mudarFavorito()">
+    <i class="bi bi-star"
+    [ngClass]="{
+        'bi-star ': !meuFavorito,
+        'bi-star-fill' : meuFavorito
+    }"
+    ></i></button>
+
+
