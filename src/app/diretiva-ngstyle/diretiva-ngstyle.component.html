@@ -1,0 +1,25 @@
+<h5>ngstyle</h5>
+<button
+    (click)="mudarAtivo()"
+    [style.backgroundColor]="ativo ? 'green' : 'red'"
+    [style.color]="ativo ? 'white' : 'black'"
+    [style.fontWeight]="ativo ? 'bold' : 'normal'"
+    [style.fontSize]="tamanhoFonte + 'px'"
+>
+teste
+</button>
+<button (click)="dimTamanho()">-</button>
+<input type="text" [(ngModel)]="tamanhoFonte">
+<button (click)="addTamanho()">+</button>
+
+<button
+    (click)="mudarAtivo()"
+    [ngStyle]="{
+        'backgroundColor': ativo ? 'green' : 'red',
+        'color' : ativo ? 'white' : 'black',
+        'fontWeight':ativo ? 'bold' : 'normal',
+        'fontSize':tamanhoFonte + 'px'
+    }"
+>
+teste
+</button>
