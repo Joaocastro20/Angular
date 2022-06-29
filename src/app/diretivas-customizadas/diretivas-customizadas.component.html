@@ -1,5 +1,11 @@
 <h5>Diretivas Customizadas</h5>
 <p appHighlight defaultColor="lightgray" highlightColor="red">Cores customizadas</p>
-<p appFundoAmarelo>Fundo amarelos</p>
-<button appFundoAmarelo>Botao</button>
+<!--p appFundoAmarelo>Fundo amarelos</p>
+<button appFundoAmarelo>Botao</button-->
 <p appHighlightMouse>Passe o Mouse Highlight</p>
+<div *ngIf="mostrarConteudo">Sumiu</div>
+<div *ngIf="!mostrarConteudo">Apareceu</div>
+<button (click)="onMostrarConteudo()">Botao</button>
+<br>
+<div *appNgElse="mostrarConteudo">oi</div>
+
