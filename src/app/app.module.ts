@@ -25,7 +25,8 @@ import { DiretivasCustomizadasComponent } from './diretivas-customizadas/diretiv
 import { HighlightMouseDirective } from './shared/highlight-mouse.directive';
 import { HighlightDirective } from './shared/highlight.directive';
 import { NgElseDirective } from './shared/ng-else.directive';
-
+import { CserviceComponent } from './cservice/cservice.component';
+import { cService } from './cservice/cservice.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { NgElseDirective } from './shared/ng-else.directive';
     DiretivasCustomizadasComponent,
     HighlightMouseDirective,
     HighlightDirective,
-    NgElseDirective
+    NgElseDirective,
+    CserviceComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { NgElseDirective } from './shared/ng-else.directive';
     MeuFormModule
     
   ],
-  providers: [],
+  providers: [cService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
