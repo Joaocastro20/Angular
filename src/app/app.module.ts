@@ -28,6 +28,7 @@ import { NgElseDirective } from './shared/ng-else.directive';
 import { CserviceComponent } from './cservice/cservice.component';
 import { cService } from './cservice/cservice.service';
 import { CriarAlgoServiceComponent } from './criar-algo-service/criar-algo-service.component';
+import { LogService } from './shared/log.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { CriarAlgoServiceComponent } from './criar-algo-service/criar-algo-servi
     MeuFormModule
     
   ],
-  providers: [cService],
+  providers: [cService,LogService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
