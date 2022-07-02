@@ -7,3 +7,12 @@
 <p>URL: {{livro.url}}</p>
 <br>
 <p>Livro: {{livro|json}}</p>
+<h5>Pipe Puro</h5>
+
+<input type="text" [(ngModel)]="filtro">
+<br>
+<input type="text" #elementoText>
+<button (click)="addCurso(elementoText.value)" >Adicionar</button>
+<ul>
+    <li  *ngFor="let number of numbers|filtroArray:filtro">{{number}}</li>
+</ul>

@@ -16,6 +16,14 @@ export class PipesComponent implements OnInit {
     url: 'http://a.co/glqjpRP'
 
   }
+  numbers:string[] = ['angular','PHP','java']
+
+  filtro:string = ''
+
+  addCurso(curso:string){
+    this.numbers.push(curso)
+    console.log(this.numbers)
+  }
 
   constructor() { }
 

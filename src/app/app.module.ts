@@ -31,6 +31,7 @@ import { CriarAlgoServiceComponent } from './criar-algo-service/criar-algo-servi
 import { LogService } from './shared/log.service';
 import { PipesComponent } from './pipes/pipes.component';
 import { CamelCasePipe } from './camel-case.pipe';
+import { FiltroArrayPipe } from './filtro-array.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CamelCasePipe } from './camel-case.pipe';
     CserviceComponent,
     CriarAlgoServiceComponent,
     PipesComponent,
-    CamelCasePipe
+    CamelCasePipe,
+    FiltroArrayPipe
   ],
   imports: [
     BrowserModule,
