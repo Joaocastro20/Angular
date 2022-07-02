@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-pipes',
@@ -36,6 +37,11 @@ export class PipesComponent implements OnInit {
       return false
     })
   }
+
+  valorAsync = new Promise((resolve, reject) =>{
+    setTimeout(()=>resolve('Valor Async'),3000)
+  })
+
 
   constructor() { }
 
