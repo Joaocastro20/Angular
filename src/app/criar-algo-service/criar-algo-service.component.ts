@@ -14,6 +14,9 @@ export class CriarAlgoServiceComponent implements OnInit {
 
   ngOnInit(): void {
     this.arrayTeste = this.cService.getString()
+    this.cService.elementoCriado.subscribe(
+      elemento => console.log(elemento)
+    )
   }
   addNewElement(elemento:string){
     this.cService.addNewElement(elemento)

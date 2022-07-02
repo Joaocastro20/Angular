@@ -18,6 +18,7 @@ export class CserviceComponent implements OnInit {
 
   ngOnInit(): void {
     this.testeArray = this.testeService.getString()
+
   }
 
 }
