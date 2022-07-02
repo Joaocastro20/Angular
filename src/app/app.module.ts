@@ -29,6 +29,7 @@ import { CserviceComponent } from './cservice/cservice.component';
 import { cService } from './cservice/cservice.service';
 import { CriarAlgoServiceComponent } from './criar-algo-service/criar-algo-service.component';
 import { LogService } from './shared/log.service';
+import { PipesComponent } from './pipes/pipes.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { LogService } from './shared/log.service';
     HighlightDirective,
     NgElseDirective,
     CserviceComponent,
-    CriarAlgoServiceComponent
+    CriarAlgoServiceComponent,
+    PipesComponent
   ],
   imports: [
     BrowserModule,
