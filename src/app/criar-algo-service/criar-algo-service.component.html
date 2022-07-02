@@ -1,0 +1,8 @@
+<h5>Singleton e Varias Instancias</h5>
+<ul>
+    <li *ngFor="let array of arrayTeste ">
+        {{array}}
+    </li>
+</ul>
+<input type="text" #elementoInput>
+<button (click)="addNewElement(elementoInput.value)">Adicionar</button>

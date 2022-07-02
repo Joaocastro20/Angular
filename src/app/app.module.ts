@@ -27,6 +27,7 @@ import { HighlightDirective } from './shared/highlight.directive';
 import { NgElseDirective } from './shared/ng-else.directive';
 import { CserviceComponent } from './cservice/cservice.component';
 import { cService } from './cservice/cservice.service';
+import { CriarAlgoServiceComponent } from './criar-algo-service/criar-algo-service.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { cService } from './cservice/cservice.service';
     HighlightMouseDirective,
     HighlightDirective,
     NgElseDirective,
-    CserviceComponent
+    CserviceComponent,
+    CriarAlgoServiceComponent
   ],
   imports: [
     BrowserModule,
