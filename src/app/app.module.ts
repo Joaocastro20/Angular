@@ -30,6 +30,7 @@ import { cService } from './cservice/cservice.service';
 import { CriarAlgoServiceComponent } from './criar-algo-service/criar-algo-service.component';
 import { LogService } from './shared/log.service';
 import { PipesComponent } from './pipes/pipes.component';
+import { CamelCasePipe } from './camel-case.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { PipesComponent } from './pipes/pipes.component';
     NgElseDirective,
     CserviceComponent,
     CriarAlgoServiceComponent,
-    PipesComponent
+    PipesComponent,
+    CamelCasePipe
   ],
   imports: [
     BrowserModule,
