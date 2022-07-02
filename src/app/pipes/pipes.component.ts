@@ -25,6 +25,18 @@ export class PipesComponent implements OnInit {
     console.log(this.numbers)
   }
 
+  obterCursos(){
+    if(this.numbers.length === 0||this.filtro===undefined||this.filtro.trim()===''){
+      return this.numbers
+    }
+    return this.numbers.filter((v:string)=>{
+      if(v.toLowerCase().indexOf(this.filtro.toLowerCase())>=0){
+        return true
+      }
+      return false
+    })
+  }
+
   constructor() { }
 
   ngOnInit(): void {

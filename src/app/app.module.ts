@@ -32,6 +32,7 @@ import { LogService } from './shared/log.service';
 import { PipesComponent } from './pipes/pipes.component';
 import { CamelCasePipe } from './camel-case.pipe';
 import { FiltroArrayPipe } from './filtro-array.pipe';
+import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { FiltroArrayPipe } from './filtro-array.pipe';
     CriarAlgoServiceComponent,
     PipesComponent,
     CamelCasePipe,
-    FiltroArrayPipe
+    FiltroArrayPipe,
+    FiltroArrayImpuroPipe
   ],
   imports: [
     BrowserModule,
