@@ -3,7 +3,7 @@ import { MeuFormComponent } from './meu-form/meu-form.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routing } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { CursosModule } from './cursos/cursos.module';
@@ -33,6 +33,9 @@ import { PipesComponent } from './pipes/pipes.component';
 import { CamelCasePipe } from './camel-case.pipe';
 import { FiltroArrayPipe } from './filtro-array.pipe';
 import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
+import { RouteHomeComponent } from './route-home/route-home.component';
+import { RouteLoginComponent } from './route-login/route-login.component';
+import { RouteCursosComponent } from './route-cursos/route-cursos.component';
 
 @NgModule({
   declarations: [
@@ -59,14 +62,18 @@ import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
     PipesComponent,
     CamelCasePipe,
     FiltroArrayPipe,
-    FiltroArrayImpuroPipe
+    FiltroArrayImpuroPipe,
+    RouteHomeComponent,
+    RouteLoginComponent,
+    RouteCursosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CursosModule,
     FormsModule,
-    MeuFormModule
+    MeuFormModule,
+    routing
     
   ],
   providers: [cService,LogService],
