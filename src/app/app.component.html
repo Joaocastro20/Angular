@@ -1,5 +1,13 @@
-
-<router-outlet class="modal modal-sheet position-static d-block bg-secondary py-5"></router-outlet>
+<nav>
+    <div class="nav-wrapper">
+        <a routerLink="" class="brand-logo right">Rotas</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a routerLink="login">Login</a></li>
+            <li><a routerLink="cursos">Cursos</a></li>
+        </ul>
+    </div>
+</nav>
+<router-outlet></router-outlet>
 <div class="b-example-divider" style="height: 3rem; background-color: black;"></div>
 <app-pipes class="modal modal-sheet position-static d-block bg-secondary py-5"></app-pipes>
 <div class="b-example-divider" style="height: 3rem; background-color: black;"></div>
