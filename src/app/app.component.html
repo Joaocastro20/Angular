@@ -1,12 +1,28 @@
-<nav>
-    <div class="nav-wrapper">
-        <a routerLink="" class="brand-logo right">Rotas</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-            <li><a routerLink="login">Login</a></li>
-            <li><a routerLink="cursos">Cursos</a></li>
+<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Always expand</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="cursos">Cursos</a>
+          </li>
         </ul>
+        <form role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
     </div>
-</nav>
+  </nav>
 <router-outlet></router-outlet>
 <div class="b-example-divider" style="height: 3rem; background-color: black;"></div>
 <app-pipes class="modal modal-sheet position-static d-block bg-secondary py-5"></app-pipes>
