@@ -10,31 +10,31 @@ export class CicloComponent implements OnInit,OnChanges,DoCheck,AfterContentInit
   @Input() valorInicial = 10
 
   constructor() { 
-    this.log('construtor')
+    //this.log('construtor')
   }
 
   ngOnChanges(){
-    this.log('ngOnChanges')
+    //this.log('ngOnChanges')
   }
 
   ngOnInit(){
-    this.log('ngOnInit')
+    //this.log('ngOnInit')
   }
 
   ngDoCheck(){
-    this.log('ngDoCheck')
+    //this.log('ngDoCheck')
   }
   ngAfterContentInit() {
-    this.log('ngAfterContentInit')
+    //this.log('ngAfterContentInit')
   }
   ngAfterContentChecked() {
-    this.log('ngAfterContentChecked')
+    //this.log('ngAfterContentChecked')
   }
   ngAfterViewInit() {
-    this.log('ngAfterViewInit')
+    //this.log('ngAfterViewInit')
   }
   ngAfterViewChecked() {
-    this.log('ngAfterViewChecked')
+    //this.log('ngAfterViewChecked')
   }
   ngOnDestroy(): void {
     
@@ -43,7 +43,7 @@ export class CicloComponent implements OnInit,OnChanges,DoCheck,AfterContentInit
 
 
   private log(hook:string){
-    console.log(hook)
+    //console.log(hook)
   }
 
 }
