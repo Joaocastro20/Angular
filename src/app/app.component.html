@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Always expand</a>
+      <a class="navbar-brand" href="#">Testando Rotas</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -16,9 +16,6 @@
           <li class="nav-item">
             <a class="nav-link active" routerLink="cursos" [queryParams]="{pagina:1}">Cursos</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link active" [routerLink]="['curso',id.value]">Curso pelo Id</a>
-          </li>
         </ul>
         <form role="search">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -27,7 +24,6 @@
     </div>
   </nav>
 <router-outlet></router-outlet>
-<input type="number" #id>
 <div class="b-example-divider" style="height: 3rem; background-color: black;"></div>
 <app-pipes class="modal modal-sheet position-static d-block bg-secondary py-5"></app-pipes>
 <div class="b-example-divider" style="height: 3rem; background-color: black;"></div>
