@@ -37,6 +37,8 @@ import { RouteHomeComponent } from './route-home/route-home.component';
 import { RouteLoginComponent } from './route-login/route-login.component';
 import { RouteCursosComponent } from './route-cursos/route-cursos.component';
 import { RouteCursoDetalhesComponent } from './route-curso-detalhes/route-curso-detalhes.component';
+import { RouteCursosService } from './route-cursos/route-cursos.service';
+import { RouteCursoNaoEncontradoComponent } from './route-curso-nao-encontrado/route-curso-nao-encontrado.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { RouteCursoDetalhesComponent } from './route-curso-detalhes/route-curso-
     RouteHomeComponent,
     RouteLoginComponent,
     RouteCursosComponent,
-    RouteCursoDetalhesComponent
+    RouteCursoDetalhesComponent,
+    RouteCursoNaoEncontradoComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,7 @@ import { RouteCursoDetalhesComponent } from './route-curso-detalhes/route-curso-
     routing
     
   ],
-  providers: [cService,LogService],
+  providers: [cService,LogService,RouteCursosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
