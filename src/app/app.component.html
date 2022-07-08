@@ -16,6 +16,9 @@
           <li class="nav-item">
             <a class="nav-link active" routerLink="cursos">Cursos</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" [routerLink]="['curso',id.value]">Curso pelo Id</a>
+          </li>
         </ul>
         <form role="search">
           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -24,6 +27,7 @@
     </div>
   </nav>
 <router-outlet></router-outlet>
+<input type="number" #id>
 <div class="b-example-divider" style="height: 3rem; background-color: black;"></div>
 <app-pipes class="modal modal-sheet position-static d-block bg-secondary py-5"></app-pipes>
 <div class="b-example-divider" style="height: 3rem; background-color: black;"></div>

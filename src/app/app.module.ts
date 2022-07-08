@@ -36,6 +36,7 @@ import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
 import { RouteHomeComponent } from './route-home/route-home.component';
 import { RouteLoginComponent } from './route-login/route-login.component';
 import { RouteCursosComponent } from './route-cursos/route-cursos.component';
+import { RouteCursoDetalhesComponent } from './route-curso-detalhes/route-curso-detalhes.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { RouteCursosComponent } from './route-cursos/route-cursos.component';
     FiltroArrayImpuroPipe,
     RouteHomeComponent,
     RouteLoginComponent,
-    RouteCursosComponent
+    RouteCursosComponent,
+    RouteCursoDetalhesComponent
   ],
   imports: [
     BrowserModule,
