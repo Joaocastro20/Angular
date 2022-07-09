@@ -78,7 +78,8 @@ import { RouteCursoNaoEncontradoComponent } from './route-curso-nao-encontrado/r
     CursosModule,
     FormsModule,
     MeuFormModule,
-    routing
+    AppRoutingModule
+    //routing
     
   ],
   providers: [cService,LogService,RouteCursosService],
