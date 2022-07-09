@@ -33,12 +33,12 @@ import { PipesComponent } from './pipes/pipes.component';
 import { CamelCasePipe } from './camel-case.pipe';
 import { FiltroArrayPipe } from './filtro-array.pipe';
 import { FiltroArrayImpuroPipe } from './filtro-array-impuro.pipe';
-import { RouteHomeComponent } from './route-home/route-home.component';
-import { RouteLoginComponent } from './route-login/route-login.component';
+import { RouteHomeComponent } from './route-cursos/route-home/route-home.component';
+import { RouteLoginComponent } from './route-cursos/route-login/route-login.component';
 import { RouteCursosComponent } from './route-cursos/route-cursos.component';
-import { RouteCursoDetalhesComponent } from './route-curso-detalhes/route-curso-detalhes.component';
+import { RouteCursoDetalhesComponent } from './route-cursos/route-curso-detalhes/route-curso-detalhes.component';
 import { RouteCursosService } from './route-cursos/route-cursos.service';
-import { RouteCursoNaoEncontradoComponent } from './route-curso-nao-encontrado/route-curso-nao-encontrado.component';
+import { RouteCursoNaoEncontradoComponent } from './route-cursos/route-curso-nao-encontrado/route-curso-nao-encontrado.component';
 
 @NgModule({
   declarations: [

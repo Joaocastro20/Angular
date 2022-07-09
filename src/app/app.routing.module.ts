@@ -2,11 +2,11 @@ import { ModuleWithProviders } from "@angular/core";
 import { NgModule } from "@angular/core";
 
 import { RouterModule, Routes } from '@angular/router';
-import { RouteCursoDetalhesComponent } from './route-curso-detalhes/route-curso-detalhes.component';
-import { RouteCursoNaoEncontradoComponent } from './route-curso-nao-encontrado/route-curso-nao-encontrado.component';
+import { RouteCursoDetalhesComponent } from './route-cursos/route-curso-detalhes/route-curso-detalhes.component';
+import { RouteCursoNaoEncontradoComponent } from './route-cursos/route-curso-nao-encontrado/route-curso-nao-encontrado.component';
 import { RouteCursosComponent } from './route-cursos/route-cursos.component';
-import { RouteHomeComponent } from './route-home/route-home.component';
-import { RouteLoginComponent } from './route-login/route-login.component';
+import { RouteHomeComponent } from './route-cursos/route-home/route-home.component';
+import { RouteLoginComponent } from './route-cursos/route-login/route-login.component';
 
 const routes: Routes = [
     {path: 'cursos', component: RouteCursosComponent},
