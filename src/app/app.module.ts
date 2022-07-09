@@ -39,6 +39,7 @@ import { RouteCursosComponent } from './route-cursos/route-cursos.component';
 import { RouteCursoDetalhesComponent } from './route-cursos/route-curso-detalhes/route-curso-detalhes.component';
 import { RouteCursosService } from './route-cursos/route-cursos.service';
 import { RouteCursoNaoEncontradoComponent } from './route-cursos/route-curso-nao-encontrado/route-curso-nao-encontrado.component';
+import { RouteAlunosModule } from './route-cursos/route-alunos/route-alunos.module';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { RouteCursoNaoEncontradoComponent } from './route-cursos/route-curso-nao
     CursosModule,
     FormsModule,
     MeuFormModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouteAlunosModule
     //routing
     
   ],
