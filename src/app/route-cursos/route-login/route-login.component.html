@@ -1,1 +1,22 @@
-<p>route-login works!</p>
+<div class="wrapper fadeInDown" style="background-image: url('http://lorempixel.com.br/100/100/?1');">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="" id="icon" alt="User Icon" />
+      </div>
+  
+      <!-- Login Form -->
+      <div>
+        <input [(ngModel)]="usuario.nome" type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+        <input [(ngModel)]="usuario.senha" type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+        <button type="submit" class="fadeIn fourth" value="Log In" (click)="fazerLogin()">Login</button>
+      <div>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
+    </div>

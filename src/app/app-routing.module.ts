@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'cursos', component: RouteCursosComponent},
   {path: 'curso/:id', component:RouteCursoDetalhesComponent},
   {path: 'login', component: RouteLoginComponent},
-  {path:'', component: RouteHomeComponent },
+  {path:'', component: RouteLoginComponent },
   {path: 'naoEncontrado', component:RouteCursoNaoEncontradoComponent}
 ];
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(routes)

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './route-cursos/route-login/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,7 @@ export class AppComponent {
   title = 'angular';
   valor:number = 5
   deletar:boolean = false
+  mostrarMenu: boolean = false
 
   mudarValor(){
     this.valor++
@@ -16,6 +18,16 @@ export class AppComponent {
 
   destruirCiclo(){
     this.deletar = true
+  }
+
+  constructor(private authService: AuthService){
+
+  }
+
+  ngOnInit(){
+    this.authService.mostrarMenuEmitter.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    )
   }
 
 }
