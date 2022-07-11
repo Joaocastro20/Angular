@@ -41,6 +41,7 @@ import { RouteCursosService } from './route-cursos/route-cursos.service';
 import { RouteCursoNaoEncontradoComponent } from './route-cursos/route-curso-nao-encontrado/route-curso-nao-encontrado.component';
 import { RouteAlunosModule } from './route-cursos/route-alunos/route-alunos.module';
 import { AuthService } from './route-cursos/route-login/auth.service';
+import { AuthGuardService } from './route-cursos/guards/auth.guard.service';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,7 @@ import { AuthService } from './route-cursos/route-login/auth.service';
     //routing
     
   ],
-  providers: [cService,LogService,RouteCursosService,AuthService],
+  providers: [cService,LogService,RouteCursosService,AuthService,AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

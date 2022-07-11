@@ -4,10 +4,11 @@ import { RouteCursoDetalhesComponent } from "../route-curso-detalhes/route-curso
 import { AlunoFormComponent } from "./aluno-form/aluno-form.component";
 import { RouteAlunosComponent } from "./route-alunos.component";
 import { AlunoDetalheComponent } from "./aluno-detalhe/aluno-detalhe.component";
+import { AuthGuardService } from "../guards/auth.guard.service";
 
 
 const alunosRoutes: Routes = [
-    {path:'alunos',component: RouteAlunosComponent, children:[
+    {path:'alunos',component: RouteAlunosComponent,canActivate:[AuthGuardService], children:[
         {path:'novo',component:AlunoFormComponent},
         {path:':id',component:AlunoDetalheComponent},
         {path:':id/editar',component:AlunoFormComponent}
