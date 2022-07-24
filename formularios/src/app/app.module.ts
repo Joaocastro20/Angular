@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateFormularioComponent } from './template-formulario/template-formulario.component';
 import { DataFormularioComponent } from './data-formulario/data-formulario.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,10 @@ import { DataFormularioComponent } from './data-formulario/data-formulario.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [FormsModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
