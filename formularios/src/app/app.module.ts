@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TemplateFormularioComponent } from './template-formulario/template-formulario.component';
 import { DataFormularioComponent } from './data-formulario/data-formulario.component';
 import { FormsModule } from '@angular/forms';
+import { FormDebugComponent } from './form-debug/form-debug.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateFormularioComponent,
-    DataFormularioComponent
+    DataFormularioComponent,
+    FormDebugComponent
   ],
   imports: [
     BrowserModule,
