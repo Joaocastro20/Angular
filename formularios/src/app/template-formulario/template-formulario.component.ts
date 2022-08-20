@@ -17,7 +17,7 @@ export class TemplateFormularioComponent implements OnInit {
   Dados: any = []
 
   onSubmit(form: any) {
-    console.log(form)
+    this.http.post('https://httpbin.org/post',JSON.stringify(form.value)).subscribe(resposta => console.log(resposta));
   }
 
   constructor(
@@ -33,8 +33,8 @@ export class TemplateFormularioComponent implements OnInit {
       var validacep = /^[0-9]{8}$/;
       if (validacep.test(cep_replace)) {
         this.resetaForm(form);
-        var url = 'https://viacep.com.br/ws/' + cep_replace + '/json'
-        this.http.get(url).subscribe(resultado => this.popularForm(resultado, form))
+        var url = 'https://viacep.com.br/ws/' + cep_replace + '/json';
+        this.http.get(url).subscribe(resultado => this.popularForm(resultado, form));
       }
     }
 
