@@ -7,6 +7,8 @@ import { TemplateFormularioComponent } from './template-formulario/template-form
 import { DataFormularioComponent } from './data-formulario/data-formulario.component';
 import { FormsModule } from '@angular/forms';
 import { FormDebugComponent } from './form-debug/form-debug.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { FormDebugComponent } from './form-debug/form-debug.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [FormsModule],
   bootstrap: [AppComponent]

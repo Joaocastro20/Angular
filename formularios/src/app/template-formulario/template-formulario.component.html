@@ -1,4 +1,4 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form #f="ngForm" FormGroup (ngSubmit)="onSubmit(f)">
     <div class="form-group">
         <div class="col-sm-12">
             <label for="nome">Nome</label>
@@ -35,7 +35,9 @@
         <div class="row">
             <div class="col-md-3">
                 <label for="cep" class="control-label">CEP</label>
-                <input type="text" class="form-control" id="cep" name="cep" ngModel required #cep="ngModel">
+                <input type="text" class="form-control" id="cep" name="cep" ngModel required #cep="ngModel"
+                (blur)="consultaCep(cep.value, f)"
+                >
                 <div *ngIf="!cep.valid && cep.touched" class="alert alert-danger">
                     Cep é obrigatorio!
                 </div>
