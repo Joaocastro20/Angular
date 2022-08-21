@@ -11,7 +11,7 @@ export class DataFormularioComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  constructor(private formBuilder:FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -26,9 +26,19 @@ export class DataFormularioComponent implements OnInit {
     })
   }
 
-  onSubmit(){
-    this.http.post('https://httpbin.org/post',JSON.stringify(this.formulario.value)).subscribe(resposta => console.log(resposta));
-    console.log(this.formulario.value)
-  }
+  onSubmit() {
+    if (this.formulario.value != null) {
+      this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
+        .subscribe(resposta => console.log(resposta));
+      console.log(this.formulario.value, 'enviou');
+    }
+    this.formulario.reset();
 
+  }
+  resetarFormulario() {
+    this.formulario.patchValue({
+      nome: null,
+      email: null
+    })
+  }
 }
