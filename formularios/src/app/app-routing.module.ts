@@ -6,7 +6,7 @@ import { TemplateFormularioComponent } from './template-formulario/template-form
 const routes: Routes = [
   {path: 'templateForm', component: TemplateFormularioComponent},
   {path: 'dataForm', component: DataFormularioComponent},
-  {path: '',pathMatch: 'full', redirectTo: 'templateForm'}
+  {path: '',pathMatch: 'full', redirectTo: 'dataForm'}
 ];
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(routes)
 @NgModule({

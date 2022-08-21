@@ -4,24 +4,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateFormularioComponent } from './template-formulario/template-formulario.component';
-import { DataFormularioComponent } from './data-formulario/data-formulario.component';
-import { FormsModule } from '@angular/forms';
-import { FormDebugComponent } from './form-debug/form-debug.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormDebugComponent } from './shared/form-debug/form-debug.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DataFormularioModule } from './data-formulario/data-formulario.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplateFormularioComponent,
-    DataFormularioComponent,
-    FormDebugComponent
+    TemplateFormularioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    DataFormularioModule,
+    SharedModule
   ],
   providers: [FormsModule],
   bootstrap: [AppComponent]
