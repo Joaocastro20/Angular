@@ -38,10 +38,13 @@ export class DataFormularioComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.formulario.value != null) {
+    if (this.formulario.valid) {
       this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
         .subscribe(resposta => console.log(resposta));
-      console.log(this.formulario, 'enviou');
+      window.alert('Formulario enviado com sucesso!')
+    }else{
+      console.log('Formulario invalido');
+      Object.keys(this.formulario.controls).forEach(campo=>{window.alert('Verifique o '+ campo)})
     }
     this.formulario.reset();
 
@@ -80,5 +83,8 @@ export class DataFormularioComponent implements OnInit {
     }}
       
     )
+  }
+  validarFormulario(){
+    return this.formulario.valid;
   }
 }
