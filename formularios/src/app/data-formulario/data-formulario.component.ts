@@ -21,20 +21,20 @@ export class DataFormularioComponent implements OnInit {
     //   email: new FormControl(null)
     // });
     this.formulario = this.formBuilder.group({
-      nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      email: [null,[Validators.required, Validators.email]],
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      email: [null, [Validators.required, Validators.email]],
       endereco: this.formBuilder.group({
-        cep:[null] ,
-        numero:[null],
-        complemento:[null],
-        rua:[null],
-        bairro:[null],
-        cidade:[null],
-        estado:[null]
+        cep: [null],
+        numero: [null],
+        complemento: [null],
+        rua: [null],
+        bairro: [null],
+        cidade: [null],
+        estado: [null]
       })
-      
+
     })
-    
+
   }
 
   onSubmit() {
@@ -42,23 +42,17 @@ export class DataFormularioComponent implements OnInit {
       this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
         .subscribe(resposta => console.log(resposta));
       window.alert('Formulario enviado com sucesso!')
-    }else{
+    } else {
       console.log('Formulario invalido');
-      Object.keys(this.formulario.controls).forEach(campo=>{window.alert('Verifique o '+ campo)})
+      Object.keys(this.formulario.controls).forEach(campo => { window.alert('Verifique o ' + campo) })
     }
     this.formulario.reset();
 
   }
-  resetarFormulario() {
-    this.formulario.patchValue({
-      nome: null,
-      email: null
-    })
+  verificaValidTouch(campo: any) {
+    return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched;
   }
-  verificaValidTouch(campo:any){
-    return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched ;
-  }
-  consultarCep(){
+  consultarCep() {
     var cep = this.formulario.get('endereco.cep')?.value;
     var cep_replace = cep.replace(/\D/g, '');
     if (cep_replace != "") {
@@ -69,22 +63,23 @@ export class DataFormularioComponent implements OnInit {
       }
     }
   }
-  resetaForm(){
+  resetaForm() {
     this.formulario.reset()
   }
-  popularForm(dados:any){
+  popularForm(dados: any) {
     this.formulario.patchValue({
       endereco: {
-      complemento: dados.complemento,
-      rua: dados.logradouro,
-      bairro: dados.bairro,
-      cidade: dados.localidade,
-      uf: dados.uf,
-    }}
-      
+        complemento: dados.complemento,
+        rua: dados.logradouro,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        uf: dados.uf,
+      }
+    }
+
     )
   }
-  validarFormulario(){
+  validarFormulario() {
     return this.formulario.valid;
   }
 }
