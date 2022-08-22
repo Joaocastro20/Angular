@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data-formulario',
@@ -21,8 +21,8 @@ export class DataFormularioComponent implements OnInit {
     //   email: new FormControl(null)
     // });
     this.formulario = this.formBuilder.group({
-      nome: [null],
-      email: [null]
+      nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      email: [null,[Validators.required, Validators.email]]
     })
   }
 
@@ -30,7 +30,7 @@ export class DataFormularioComponent implements OnInit {
     if (this.formulario.value != null) {
       this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
         .subscribe(resposta => console.log(resposta));
-      console.log(this.formulario.value, 'enviou');
+      console.log(this.formulario, 'enviou');
     }
     this.formulario.reset();
 
