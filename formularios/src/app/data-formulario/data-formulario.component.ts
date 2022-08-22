@@ -24,6 +24,7 @@ export class DataFormularioComponent implements OnInit {
       nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: [null,[Validators.required, Validators.email]]
     })
+    
   }
 
   onSubmit() {
@@ -40,5 +41,8 @@ export class DataFormularioComponent implements OnInit {
       nome: null,
       email: null
     })
+  }
+  verificaValidTouch(campo:any){
+    return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched ;
   }
 }

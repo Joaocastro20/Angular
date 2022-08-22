@@ -6,6 +6,11 @@
         <div class="col-sm-12">
             <input type="text" class="form-control" id="nome" placeholder="Nome" formControlName="nome">
         </div>
+        <div *ngIf="verificaValidTouch('nome')" class="alert alert-danger">
+            -Nome é obrigatorio!<br>
+            -Deve possuir entre 3 e 20 caracteres.
+
+        </div>
 
 
     </div>
@@ -16,6 +21,11 @@
         </div>
         <div class="col-sm-12">
             <input type="text" class="form-control" id="email" placeholder="Email" formControlName="email">
+        </div>
+        <div *ngIf="verificaValidTouch('email')" class="alert alert-danger">
+            -Email é obrigatorio!<br>
+            -O email deve ser valido!.
+
         </div>
     </div>
 
