@@ -22,7 +22,17 @@ export class DataFormularioComponent implements OnInit {
     // });
     this.formulario = this.formBuilder.group({
       nome: [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      email: [null,[Validators.required, Validators.email]]
+      email: [null,[Validators.required, Validators.email]],
+      endereco: this.formBuilder.group({
+        cep:[null] ,
+        numero:[null],
+        complemento:[null],
+        rua:[null],
+        bairro:[null],
+        cidade:[null],
+        estado:[null]
+      })
+      
     })
     
   }
