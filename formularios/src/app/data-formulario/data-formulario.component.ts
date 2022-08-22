@@ -55,4 +55,30 @@ export class DataFormularioComponent implements OnInit {
   verificaValidTouch(campo:any){
     return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched ;
   }
+  consultarCep(){
+    var cep = this.formulario.get('endereco.cep')?.value;
+    var cep_replace = cep.replace(/\D/g, '');
+    if (cep_replace != "") {
+      var validacep = /^[0-9]{8}$/;
+      if (validacep.test(cep_replace)) {
+        var url = 'https://viacep.com.br/ws/' + cep_replace + '/json';
+        this.http.get(url).subscribe(resultado => this.popularForm(resultado));
+      }
+    }
+  }
+  resetaForm(){
+    this.formulario.reset()
+  }
+  popularForm(dados:any){
+    this.formulario.patchValue({
+      endereco: {
+      complemento: dados.complemento,
+      rua: dados.logradouro,
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      uf: dados.uf,
+    }}
+      
+    )
+  }
 }
