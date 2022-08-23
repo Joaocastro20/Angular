@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Estado } from '../shared/models/estado';
+import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 import { DropdownService } from '../shared/services/dropdown.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class DataFormularioComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
-    private service:DropdownService ) { }
+    private service:DropdownService,
+    private cepService: ConsultaCepService ) { }
 
   ngOnInit(): void {
     this.service.getEstadosBr().subscribe(dados => {this.estados = dados,console.log(this.estados)})
@@ -63,8 +65,7 @@ export class DataFormularioComponent implements OnInit {
     if (cep_replace != "") {
       var validacep = /^[0-9]{8}$/;
       if (validacep.test(cep_replace)) {
-        var url = 'https://viacep.com.br/ws/' + cep_replace + '/json';
-        this.http.get(url).subscribe(resultado => this.popularForm(resultado));
+        this.cepService.consultarCep(cep_replace).subscribe(dados => this.popularForm(dados));
       }
     }
   }
