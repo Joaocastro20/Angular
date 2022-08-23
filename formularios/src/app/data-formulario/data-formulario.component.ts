@@ -16,6 +16,7 @@ export class DataFormularioComponent implements OnInit {
   formulario!: FormGroup;
   //estados: Estado[] = [];
   estados!: Observable<Estado[]>;
+  cargos!: any[]
 
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -24,6 +25,7 @@ export class DataFormularioComponent implements OnInit {
 
   ngOnInit(): void {
     this.estados = this.service.getEstadosBr();
+    this.cargos = this.cepService.buscarCargos();
     // this.service.getEstadosBr().subscribe(dados => {this.estados = dados,console.log(this.estados)})
     // primeira forma de se contruir o formulario
     // this.formulario = new FormGroup({
@@ -41,7 +43,8 @@ export class DataFormularioComponent implements OnInit {
         bairro: [null],
         cidade: [null],
         estado: [null]
-      })
+      }),
+      cargo: [null]
 
     })
 
@@ -91,5 +94,8 @@ export class DataFormularioComponent implements OnInit {
   validarFormulario() {
     return this.formulario.valid;
   }
-  
+  setarCargo(){
+    const cargo = {nome: 'junior'};
+    this.formulario.get( 'cargo')?.setValue(cargo);
+  }
 }

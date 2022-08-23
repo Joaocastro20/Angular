@@ -12,4 +12,11 @@ export class ConsultaCepService {
     var url = 'https://viacep.com.br/ws/' + cep_replace + '/json';
     return  this.http.get(url);
   }
+  buscarCargos(){
+    return [
+      {nome: 'junior'},
+      {nome: 'pleno'},
+      {nome: 'senior'}
+    ]
+  }
 }
