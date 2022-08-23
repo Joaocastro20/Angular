@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Estado } from '../shared/models/estado';
+import { DropdownService } from '../shared/services/dropdown.service';
 
 @Component({
   selector: 'app-data-formulario',
@@ -10,11 +12,14 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class DataFormularioComponent implements OnInit {
 
   formulario!: FormGroup;
+  estados: Estado[] = [];
 
   constructor(private formBuilder: FormBuilder,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private service:DropdownService ) { }
 
   ngOnInit(): void {
+    this.service.getEstadosBr().subscribe(dados => {this.estados = dados,console.log(this.estados)})
     // primeira forma de se contruir o formulario
     // this.formulario = new FormGroup({
     //   nome: new FormControl(null),
@@ -82,4 +87,5 @@ export class DataFormularioComponent implements OnInit {
   validarFormulario() {
     return this.formulario.valid;
   }
+  
 }
