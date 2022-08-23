@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Estado } from '../shared/models/estado';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 import { DropdownService } from '../shared/services/dropdown.service';
@@ -13,7 +14,8 @@ import { DropdownService } from '../shared/services/dropdown.service';
 export class DataFormularioComponent implements OnInit {
 
   formulario!: FormGroup;
-  estados: Estado[] = [];
+  //estados: Estado[] = [];
+  estados!: Observable<Estado[]>;
 
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -21,7 +23,8 @@ export class DataFormularioComponent implements OnInit {
     private cepService: ConsultaCepService ) { }
 
   ngOnInit(): void {
-    this.service.getEstadosBr().subscribe(dados => {this.estados = dados,console.log(this.estados)})
+    this.estados = this.service.getEstadosBr();
+    // this.service.getEstadosBr().subscribe(dados => {this.estados = dados,console.log(this.estados)})
     // primeira forma de se contruir o formulario
     // this.formulario = new FormGroup({
     //   nome: new FormControl(null),
