@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Estado } from '../shared/models/estado';
+import { Pais } from '../shared/models/pais';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
 import { DropdownService } from '../shared/services/dropdown.service';
 
@@ -16,7 +17,8 @@ export class DataFormularioComponent implements OnInit {
   formulario!: FormGroup;
   //estados: Estado[] = [];
   estados!: Observable<Estado[]>;
-  cargos!: any[]
+  cargos!: any[];
+  paises!:Observable<Pais[]>;
 
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -26,6 +28,7 @@ export class DataFormularioComponent implements OnInit {
   ngOnInit(): void {
     this.estados = this.service.getEstadosBr();
     this.cargos = this.cepService.buscarCargos();
+    this.paises = this.service.getPaisesBr();
     // this.service.getEstadosBr().subscribe(dados => {this.estados = dados,console.log(this.estados)})
     // primeira forma de se contruir o formulario
     // this.formulario = new FormGroup({
@@ -42,9 +45,10 @@ export class DataFormularioComponent implements OnInit {
         rua: [null],
         bairro: [null],
         cidade: [null],
-        estado: [null]
-      }),
-      cargo: [null]
+        estado: [null],
+        cargo: [null],
+        pais: [null]
+      })
 
     })
 

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Estado } from '../models/estado';
+import { Estado} from '../models/estado';
+import {Pais} from '../models/pais';
 
 
 
@@ -13,5 +14,8 @@ export class DropdownService {
 
   getEstadosBr(){
     return this.http.get<Estado[]>('assets/dados/estados.json');//.pipe();
+  }
+  getPaisesBr(){
+    return this.http.get<Pais[]>('assets/dados/paises.json');
   }
 }
