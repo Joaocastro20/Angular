@@ -50,7 +50,8 @@ export class DataFormularioComponent implements OnInit {
         estado: [null],
         cargo: [null],
         pais: [null],
-        newsletter:[null]
+        newsletter:[null],
+        checkbox:[null,Validators.pattern('true')]
       })
 
     })
