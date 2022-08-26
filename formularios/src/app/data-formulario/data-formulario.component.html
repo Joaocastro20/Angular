@@ -79,6 +79,14 @@
                     <option *ngFor="let pais of paises | async" [value]="pais.nome_pais">{{pais.nome_pais}}</option>
                 </select>
             </div>
+            <div class="col-md-4">
+                <label class="control-label">News Letter</label>
+                    <div class="col-sm-4" *ngFor="let item of newsOpcoes">
+                        <label class="radio-inline">
+                            <input type="radio" [value]="item.valor" formControlName="newsletter">{{item.desc}}
+                        </label>
+                    </div>
+            </div>
         </div>
         
 

@@ -18,4 +18,10 @@ export class DropdownService {
   getPaisesBr(){
     return this.http.get<Pais[]>('assets/dados/paises.json');
   }
+  getNewsLetter(){
+    return [
+      {valor:'s',desc:'sim'},
+      {valor:'n',desc:'nao'}
+    ]
+  }
 }
