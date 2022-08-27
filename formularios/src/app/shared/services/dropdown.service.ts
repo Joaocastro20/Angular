@@ -24,4 +24,12 @@ export class DropdownService {
       {valor:'n',desc:'nao'}
     ]
   }
+  getCheckBoxDinamico(){
+    return[
+      {id:1, valor:'opcão 1'},
+      {id:2, valor:'opção 2'},
+      {id:3, valor:'opção 3'},
+      {id:4, valor:'opção 4'}
+    ]
+  }
 }

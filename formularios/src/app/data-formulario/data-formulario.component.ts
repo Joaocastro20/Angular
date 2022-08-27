@@ -20,6 +20,7 @@ export class DataFormularioComponent implements OnInit {
   cargos!: any[];
   paises!:Observable<Pais[]>;
   newsOpcoes!:any[];
+  checkbox_dinamico!:any[];
 
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -27,10 +28,12 @@ export class DataFormularioComponent implements OnInit {
     private cepService: ConsultaCepService ) { }
 
   ngOnInit(): void {
+    this.buildCheckBoxDinamico();
     this.estados = this.service.getEstadosBr();
     this.cargos = this.cepService.buscarCargos();
     this.paises = this.service.getPaisesBr();
-    this.newsOpcoes = this.service.getNewsLetter()
+    this.newsOpcoes = this.service.getNewsLetter();
+    this.checkbox_dinamico = this.service.getCheckBoxDinamico();
     // this.service.getEstadosBr().subscribe(dados => {this.estados = dados,console.log(this.estados)})
     // primeira forma de se contruir o formulario
     // this.formulario = new FormGroup({
@@ -40,6 +43,7 @@ export class DataFormularioComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: [null, [Validators.required, Validators.email]],
+      checkbox_dinamico: this.buildCheckBoxDinamico(),
       endereco: this.formBuilder.group({
         cep: [null],
         numero: [null],
@@ -105,5 +109,9 @@ export class DataFormularioComponent implements OnInit {
   setarCargo(){
     const cargo = {nome: 'junior'};
     this.formulario.get( 'cargo')?.setValue(cargo);
+  }
+  buildCheckBoxDinamico(){
+    const values = this.service.getCheckBoxDinamico().map(v => new FormControl(false));
+    return this.formBuilder.array(values);
   }
 }

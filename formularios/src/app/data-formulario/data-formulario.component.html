@@ -100,6 +100,12 @@
 
 
     </div>
+    <div class="row">
+        <label for="">CheckBox Dinamico</label>
+        <div class="col-md-2" *ngFor="let opcao of checkbox_dinamico">
+            <input type="radio" >{{opcao.valor}}
+        </div>
+    </div>
 
 
     <div style="padding: 10px;">
