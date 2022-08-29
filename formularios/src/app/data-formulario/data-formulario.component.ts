@@ -43,6 +43,7 @@ export class DataFormularioComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: [null, [Validators.required, Validators.email]],
+      confirmaEmail: [null, [DataFormularioComponent.equalsTo('email')]],
       checkbox_dinamico: this.buildCheckBoxDinamico(),
       endereco: this.formBuilder.group({
         cep: [null],
@@ -66,7 +67,7 @@ export class DataFormularioComponent implements OnInit {
     if (this.formulario.valid) {
       this.http.post('https://httpbin.org/post', JSON.stringify(this.formulario.value))
         .subscribe(resposta => console.log(resposta));
-      window.alert('Formulario enviado com sucesso!')
+      window.alert('Formulario enviado com sucesso!');
     } else {
       console.log('Formulario invalido');
       Object.keys(this.formulario.controls).forEach(campo => { window.alert('Verifique o ' + campo) })
@@ -113,5 +114,26 @@ export class DataFormularioComponent implements OnInit {
   buildCheckBoxDinamico(){
     const values = this.service.getCheckBoxDinamico().map(v => new FormControl(false));
     return this.formBuilder.array(values);
+  }
+  static equalsTo(otherField: string){
+    const validador = (formControl: FormControl)=>{
+      if(otherField == null){
+        throw new Error('E necessario informar o campo!');
+      }
+      if(!formControl.root || !(<FormGroup>formControl.root).get(otherField)){
+        return null;
+      }
+      const field = (<FormGroup>formControl.root).get(otherField);
+
+      if(!field){
+        throw new Error('E necessario informa um campo valido!')
+      }
+
+      if(field.value !== formControl.value){
+        return {equalsTo: otherField};
+      }
+      return null;
+    }
+    return validador;
   }
 }

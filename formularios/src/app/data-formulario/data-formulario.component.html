@@ -28,6 +28,19 @@
 
         </div>
     </div>
+
+    <div class="form-group">
+        <div class="col-sm-12">
+            <label for="email">Confirmar Email</label>
+        </div>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="confirmaEmail" placeholder="Confirmar Email" formControlName="confirmaEmail">
+        </div>
+        <div *ngIf="!formulario.get('confirmaEmail')?.valid" class="alert alert-danger">
+            -Os Emails não conferem!<br>
+        </div>
+    </div>
+
     <div class="endereco" formGroupName="endereco">
         <div class="row">
             <div class="col-md-3">
