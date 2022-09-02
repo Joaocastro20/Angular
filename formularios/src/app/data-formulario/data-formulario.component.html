@@ -36,7 +36,7 @@
         <div class="col-sm-12">
             <input type="text" class="form-control" id="confirmaEmail" placeholder="Confirmar Email" formControlName="confirmaEmail">
         </div>
-        <div *ngIf="!formulario.get('confirmaEmail')?.valid" class="alert alert-danger">
+        <div *ngIf="!formulario.get('confirmaEmail')?.valid && formulario.get('confirmaEmail')?.value != null" class="alert alert-danger">
             -Os Emails não conferem!<br>
         </div>
     </div>

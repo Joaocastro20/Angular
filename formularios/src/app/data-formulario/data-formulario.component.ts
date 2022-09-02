@@ -43,7 +43,7 @@ export class DataFormularioComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email: [null, [Validators.required, Validators.email]],
-      confirmaEmail: [null, [DataFormularioComponent.equalsTo('email')]],
+      confirmaEmail: [null, [DataFormularioComponent.equalsTo('email'),Validators.required]],
       checkbox_dinamico: this.buildCheckBoxDinamico(),
       endereco: this.formBuilder.group({
         cep: [null],
