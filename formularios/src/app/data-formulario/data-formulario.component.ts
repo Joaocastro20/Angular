@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { of, tap, map,distinctUntilChanged } from 'rxjs';
 import { Estado } from '../shared/models/estado';
 import { Pais } from '../shared/models/pais';
 import { ConsultaCepService } from '../shared/services/consulta-cep.service';
@@ -46,7 +47,7 @@ export class DataFormularioComponent implements OnInit {
       confirmaEmail: [null, [DataFormularioComponent.equalsTo('email'),Validators.required]],
       checkbox_dinamico: this.buildCheckBoxDinamico(),
       endereco: this.formBuilder.group({
-        cep: [null],
+        cep: [null,[Validators.minLength(8)]],
         numero: [null],
         complemento: [null],
         rua: [null],
@@ -60,7 +61,18 @@ export class DataFormularioComponent implements OnInit {
       })
 
     })
-
+    // this.formulario.get('endereco.cep')?.valueChanges.subscribe(value => console.log('valor Cep',value));
+    this.formulario.get('endereco.cep')?.statusChanges.pipe(
+      distinctUntilChanged(),
+      tap((value: any) => value)
+    ).subscribe(status => {
+      if(status === 'VALID'){
+        this.cepService.consultarCep(this.formulario.get('endereco.cep')?.value
+          
+        ).subscribe(dados => this.popularForm(dados));
+      }
+    }
+    )
   }
 
   onSubmit() {
@@ -78,16 +90,16 @@ export class DataFormularioComponent implements OnInit {
   verificaValidTouch(campo: any) {
     return !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched;
   }
-  consultarCep() {
-    var cep = this.formulario.get('endereco.cep')?.value;
-    var cep_replace = cep.replace(/\D/g, '');
-    if (cep_replace != "") {
-      var validacep = /^[0-9]{8}$/;
-      if (validacep.test(cep_replace)) {
-        this.cepService.consultarCep(cep_replace).subscribe(dados => this.popularForm(dados));
-      }
-    }
-  }
+  // consultarCep() {
+  //   var cep = this.formulario.get('endereco.cep')?.value;
+  //   var cep_replace = cep.replace(/\D/g, '');
+  //   if (cep_replace != "") {
+  //     var validacep = /^[0-9]{8}$/;
+  //     if (validacep.test(cep_replace)) {
+  //       this.cepService.consultarCep(cep_replace).subscribe(dados => this.popularForm(dados));
+  //     }
+  //   }
+  // }
   resetaForm() {
     this.formulario.reset()
   }
