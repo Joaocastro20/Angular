@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { of, tap, map,distinctUntilChanged } from 'rxjs';
 import { Estado } from '../shared/models/estado';
 import { Pais } from '../shared/models/pais';
@@ -22,6 +22,7 @@ export class DataFormularioComponent implements OnInit {
   paises!:Observable<Pais[]>;
   newsOpcoes!:any[];
   checkbox_dinamico!:any[];
+  cidades_estados!:any[];
 
   constructor(private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -72,7 +73,11 @@ export class DataFormularioComponent implements OnInit {
         ).subscribe(dados => this.popularForm(dados));
       }
     }
-    )
+    );
+    this.formulario.get('endereco.estado')?.valueChanges.pipe(
+      switchMap((estado:any[])=> this.service.getCidades(this.formulario.get('endereco.estado')?.value))
+    ).subscribe(cidades => this.cidades_estados = cidades);
+    
   }
 
   onSubmit() {
@@ -122,6 +127,8 @@ export class DataFormularioComponent implements OnInit {
   setarCargo(){
     const cargo = {nome: 'junior'};
     this.formulario.get( 'cargo')?.setValue(cargo);
+    console.log(this.cidades_estados)
+
   }
   buildCheckBoxDinamico(){
     const values = this.service.getCheckBoxDinamico().map(v => new FormControl(false));

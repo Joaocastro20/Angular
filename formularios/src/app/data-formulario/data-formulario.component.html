@@ -68,16 +68,19 @@
                 <label class="control-label">Bairro</label>
                 <input type="text" class="form-control" id="cep" placeholder="Bairro" formControlName="bairro">
             </div>
-            <div class="col-md-4">
-                <label class="control-label">Cidade</label>
-                <input type="text" class="form-control" id="cep" placeholder="Cidade" formControlName="cidade">
-            </div>
             <div class="col-md-3">
                 <label class="control-label">Estado</label>
                 <select class="form-control" id="cep" formControlName="estado">
-                    <option *ngFor="let estado of estados | async" [value]="estado.sigla">{{estado.nome}}</option>
+                    <option *ngFor="let estado of estados | async" [value]="estado.id">{{estado.nome}}</option>
                 </select>
             </div>
+            <div class="col-md-4">
+                <label class="control-label">Cidade</label>
+                <select class="form-control" id="cep">
+                    <option  *ngFor="let cidade of cidades_estados" [value]="cidade.nome">{{cidade.nome}}</option>
+                </select>
+            </div>
+            
         </div>
         <div class="row">
             <div class="col-md-3">
