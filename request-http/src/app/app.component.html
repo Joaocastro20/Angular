@@ -1,1 +1,9 @@
-<h1>Ola mundo!</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="active">HTTP</a>
+  <div>
+    <button class="btn btn-outline-success" [routerLink]="['/']">Home</button>
+    <button class="btn btn-outline-success" [routerLink]="['/cursos']" routerLinkActive="active">Cursos</button>
+    <button class="btn btn-outline-success" disabled>Button</button>
+  </div>
+</nav>
+<router-outlet></router-outlet>
