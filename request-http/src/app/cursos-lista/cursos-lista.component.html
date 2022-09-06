@@ -37,7 +37,9 @@
       </table>
   
       <ng-template #loading>
-        <span>Carregando Cursos...</span>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
       </ng-template>
   
       <!--ng-template #loadingError>
