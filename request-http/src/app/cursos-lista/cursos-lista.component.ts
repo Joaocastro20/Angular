@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { catchError, empty, Observable, Subject } from 'rxjs';
 import { CursosServiceService } from '../cursos-service.service';
 import { Curso } from '../models/curso';
+import { AlertModelComponent } from '../shared/alert-model/alert-model.component';
 
 @Component({
   selector: 'app-cursos-lista',
@@ -17,7 +19,11 @@ export class CursosListaComponent implements OnInit {
 
   error$ = new Subject<boolean>();
 
-  constructor(private service: CursosServiceService) { }
+  bsModalRef!: BsModalRef;
+
+  constructor(private service: CursosServiceService,
+    public bsModalService: BsModalService
+    ) { }
 
   ngOnInit(): void {
     // this.service.list().subscribe(dados => this.cursos = dados);
@@ -29,10 +35,16 @@ export class CursosListaComponent implements OnInit {
     .pipe(
       catchError(error => {
         console.log(error);
-        this.error$.next(true);
+        // this.error$.next(true);
+        this.handleError();
         return empty();
       })
     );
+  }
+  handleError(){
+      this.bsModalRef = this.bsModalService.show(AlertModelComponent);
+      this.bsModalRef.content.tipo = 'danger';
+      this.bsModalRef.content.message = 'Erro ao carregar os dados!';
   }
 
   onEdit(curso:any){
