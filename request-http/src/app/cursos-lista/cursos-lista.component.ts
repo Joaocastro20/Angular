@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { catchError, empty, Observable, Subject } from 'rxjs';
 import { CursosServiceService } from '../cursos-service.service';
@@ -22,7 +23,9 @@ export class CursosListaComponent implements OnInit {
   bsModalRef!: BsModalRef;
 
   constructor(private service: CursosServiceService,
-    public bsModalService: BsModalService
+    public bsModalService: BsModalService,
+    private router: Router,
+    private route: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
@@ -48,7 +51,7 @@ export class CursosListaComponent implements OnInit {
   }
 
   onEdit(curso:any){
-
+    this.router.navigate(['editar',curso]), {relativeTo:this.route}
   }
 
   onDelete(curso:any){

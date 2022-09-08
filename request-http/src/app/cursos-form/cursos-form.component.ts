@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { CursosServiceService } from '../cursos-service.service';
 
@@ -14,33 +14,53 @@ export class CursosFormComponent implements OnInit {
   cursoForm!: FormGroup;
 
   constructor(
-    private fb : FormBuilder,
+    private fb: FormBuilder,
     private router: Router,
-    private service: CursosServiceService
+    private service: CursosServiceService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    // this.route.params.subscribe(
+    //   (params:any) => {
+    //     const id = params['id'];
+    //     const curso$ = this.service.loadById(id);
+    //     curso$.subscribe(curso => {
+    //       this.updateForm(curso);
+    //     })
+    //   }
+    // )
+
+    const curso = this.route.snapshot.data['curso'];
+
     this.cursoForm = this.fb.group({
-      nome: [null,[Validators.required, Validators.minLength(3),Validators.maxLength(25)]]
+      id: [curso.id],
+      nome: [curso.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]]
     })
   }
-  onSubmit(){
+  onSubmit() {
     this.service.create(this.cursoForm.value).subscribe(
       sucess => alert('successo'),
       error => alert('Error')
     );
     this.router.navigate(['']);
   }
-  onCancel(){
+  // updateForm(curso:any){
+  //   this.cursoForm.patchValue({
+  //     id: curso.id,
+  //     nome: curso.nome
+  //   })
+  // }
+  onCancel() {
     this.cursoForm.reset();
   }
-  validarForm(){
+  validarForm() {
     return this.cursoForm.valid
   }
-  hasError(field: string){
+  hasError(field: string) {
     return this.cursoForm.get(field)?.errors
   }
-  hasTouch(field:string){
+  hasTouch(field: string) {
     return this.cursoForm.get(field)?.touched
   }
 }

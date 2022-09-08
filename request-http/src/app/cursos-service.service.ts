@@ -19,6 +19,9 @@ export class CursosServiceService {
       delay(1000)
     );
   }
+  loadById(id:any){
+    return this.http.get<Curso>(`${this.API}/${id}`).pipe(take(1));
+  }
   create(curso:Curso){
     return this.http.post(this.API, curso).pipe(take(1));
   }
