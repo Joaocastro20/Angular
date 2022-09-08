@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { CursosServiceService } from '../cursos-service.service';
 
 @Component({
   selector: 'app-cursos-form',
@@ -14,7 +15,8 @@ export class CursosFormComponent implements OnInit {
 
   constructor(
     private fb : FormBuilder,
-    private router: Router
+    private router: Router,
+    private service: CursosServiceService
   ) { }
 
   ngOnInit(): void {
@@ -23,7 +25,11 @@ export class CursosFormComponent implements OnInit {
     })
   }
   onSubmit(){
-    
+    this.service.create(this.cursoForm.value).subscribe(
+      sucess => alert('successo'),
+      error => alert('Error')
+    );
+    this.router.navigate(['']);
   }
   onCancel(){
     this.cursoForm.reset();
