@@ -39,11 +39,20 @@ export class CursosFormComponent implements OnInit {
     })
   }
   onSubmit() {
-    this.service.create(this.cursoForm.value).subscribe(
-      sucess => alert('successo'),
-      error => alert('Error')
-    );
-    this.router.navigate(['']);
+    if(this.cursoForm.value.id){
+      this.service.update(this.cursoForm.value).subscribe(
+        sucess => alert('update, successo'),
+        error => alert('update, Error')
+      );
+      this.router.navigate(['']);
+    }else{
+      this.service.create(this.cursoForm.value).subscribe(
+        sucess => alert('successo'),
+        error => alert('Error')
+      );
+      this.router.navigate(['']);
+    }
+    
   }
   // updateForm(curso:any){
   //   this.cursoForm.patchValue({
