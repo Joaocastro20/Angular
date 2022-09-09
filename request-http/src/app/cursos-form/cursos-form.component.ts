@@ -7,7 +7,8 @@ import { CursosServiceService } from '../cursos-service.service';
 @Component({
   selector: 'app-cursos-form',
   templateUrl: './cursos-form.component.html',
-  styleUrls: ['./cursos-form.component.scss']
+  styleUrls: ['./cursos-form.component.scss'],
+  preserveWhitespaces: true
 })
 export class CursosFormComponent implements OnInit {
 

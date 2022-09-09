@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { catchError, empty, Observable, Subject } from 'rxjs';
@@ -10,11 +10,15 @@ import { AlertModelComponent } from '../shared/alert-model/alert-model.component
   selector: 'app-cursos-lista',
   templateUrl: './cursos-lista.component.html',
   styleUrls: ['./cursos-lista.component.scss'],
-  preserveWhitespaces:true
+  preserveWhitespaces: true
 })
 export class CursosListaComponent implements OnInit {
 
-  cursos!:Curso[];
+  @ViewChild('deleteModal') deleteModal: any;
+
+  cursoSelect!: Curso;
+
+  cursos!: Curso[];
 
   cursos$!: Observable<Curso[]>;
 
@@ -25,45 +29,54 @@ export class CursosListaComponent implements OnInit {
   constructor(private service: CursosServiceService,
     public bsModalService: BsModalService,
     private router: Router,
-    private route: ActivatedRoute
-    ) { }
+    private route: ActivatedRoute,
+    private modalRef: BsModalRef
+  ) { }
 
   ngOnInit(): void {
     // this.service.list().subscribe(dados => this.cursos = dados);
     this.onRefresh();
   }
 
-  onRefresh(){
+  onRefresh() {
     this.cursos$ = this.service.list()
-    .pipe(
-      catchError(error => {
-        console.log(error);
-        // this.error$.next(true);
-        this.handleError();
-        return empty();
-      })
+      .pipe(
+        catchError(error => {
+          console.log(error);
+          // this.error$.next(true);
+          this.handleError();
+          return empty();
+        })
+      );
+  }
+  handleError() {
+    this.bsModalRef = this.bsModalService.show(AlertModelComponent);
+    this.bsModalRef.content.tipo = 'danger';
+    this.bsModalRef.content.message = 'Erro ao carregar os dados!';
+  }
+
+  onEdit(curso: any) {
+    this.router.navigate(['editar', curso]), { relativeTo: this.route }
+  }
+
+  onDelete(curso: any) {
+    this.cursoSelect = curso;
+    this.modalRef = this.bsModalService.show(this.deleteModal, { class: 'modal-sm' });
+  }
+
+  onConfirmDelete() {
+    this.service.delete(this.cursoSelect.id).subscribe(
+      success => this.onRefresh(),
+      error => alert('erro')
     );
-  }
-  handleError(){
-      this.bsModalRef = this.bsModalService.show(AlertModelComponent);
-      this.bsModalRef.content.tipo = 'danger';
-      this.bsModalRef.content.message = 'Erro ao carregar os dados!';
+    this.declineModal();
   }
 
-  onEdit(curso:any){
-    this.router.navigate(['editar',curso]), {relativeTo:this.route}
+
+  onDeclineDelete() {
+    this.declineModal();
   }
-
-  onDelete(curso:any){
-
+  declineModal() {
+    this.modalRef.hide();
   }
-
-  onConfirmDelete(){
-
-  }
-
-  onDeclineDelete(){
-
-  }
-
 }
