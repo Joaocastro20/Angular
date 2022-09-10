@@ -1,4 +1,9 @@
-<div class="row">
-    <label class="form-label" id="customFileLabel">Default file input example</label>
-    <input type="file" class="form-control" id="customFile" (change)="onChange($event)" />
+<div style="margin: 10px;">
+    <div class="row">
+        <label class="form-label" id="customFileLabel">Default file input example</label>
+        <input type="file" class="form-control" id="customFile" (change)="onChange($event)" />
+    </div>
+    <div style="margin: 10px;">
+        <button type="button" class="btn btn-primary" (click)="onUpload()" [disabled]="!files">Upload</button>
+    </div>
 </div>
