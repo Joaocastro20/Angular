@@ -53,4 +53,44 @@ export class UploadFileComponent implements OnInit {
     this.bsModalRef.content.tipo = 'success';
     this.bsModalRef.content.message = 'Arquivo enviado!';
   }
+
+  handleErrorDownload() {
+    this.bsModalRef = this.bsModalService.show(AlertModelComponent);
+    this.bsModalRef.content.tipo = 'success';
+    this.bsModalRef.content.message = 'Download Concluido!';
+  }
+
+  downloadPdf(){
+    this.service.download('/api/downloadPdf').subscribe(
+      (res:any) => {
+        const file = new Blob([res],{
+          type: res.type
+        });
+        const blob = window.URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = blob;
+        link.download = '0EGIlePNyg_Iv9fdRiUpVqzN.pdf';
+        link.click();
+        window.URL.revokeObjectURL(blob);
+        link.remove();
+      }
+    );
+  }
+
+  downloadExcel(){
+    this.service.download('/api/downloadPdf').subscribe(
+      (res:any) => {
+        const file = new Blob([res],{
+          type: res.type
+        });
+        const blob = window.URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = blob;
+        link.download = '0EGIlePNyg_Iv9fdRiUpVqzN.pdf';
+        link.click();
+        window.URL.revokeObjectURL(blob);
+        link.remove();
+      }
+    );
+  }
 }

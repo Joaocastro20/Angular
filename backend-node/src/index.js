@@ -24,6 +24,13 @@ app.use((err,req,res,next)=> res.json({
     error: err.message
 }));
 
+app.get('/downloadPdf',(req,res)=>{
+    res.download('./uploads/0EGIlePNyg_Iv9fdRiUpVqzN.pdf');
+});
+
+app.get('/downloadExcel',(req,res)=>{
+    res.download('./uploads/0EGIlePNyg_Iv9fdRiUpVqzN.pdf');
+});
 
 app.listen(8000, () => {
     console.log('Servidor porta 8000')
