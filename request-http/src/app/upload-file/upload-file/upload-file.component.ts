@@ -1,5 +1,7 @@
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { AlertModelComponent } from 'src/app/shared/alert-model/alert-model.component';
 import { UploadServiceService } from './upload-service.service';
 
 @Component({
@@ -13,8 +15,11 @@ export class UploadFileComponent implements OnInit {
 
   progress = 0;
 
+  bsModalRef!: BsModalRef
+
   constructor(
-    private service: UploadServiceService
+    private service: UploadServiceService,
+    private bsModalService:BsModalService
   ) { }
 
   ngOnInit(): void {
@@ -33,7 +38,7 @@ export class UploadFileComponent implements OnInit {
       this.service.upload(this.files,'/api/upload').subscribe(
         (event:any) => {
           if(event.type === HttpEventType.Response){
-            console.log('upload success!');
+            this.handleError();
           }else if(event.type === HttpEventType.UploadProgress){
             const percentualUpload = Math.round((event.loaded * 100) / event.total);
             this.progress = percentualUpload;
@@ -41,5 +46,11 @@ export class UploadFileComponent implements OnInit {
         } 
         );
     }
+  }
+
+  handleError() {
+    this.bsModalRef = this.bsModalService.show(AlertModelComponent);
+    this.bsModalRef.content.tipo = 'success';
+    this.bsModalRef.content.message = 'Arquivo enviado!';
   }
 }
