@@ -66,6 +66,12 @@ export class UploadFileComponent implements OnInit {
         const file = new Blob([res],{
           type: res.type
         });
+
+        //SUPORTE IE
+        const nav = (window.navigator as any);
+        if(window.navigator && nav.msSaveOrOpenBlob){
+          nav.msSaveOrOpenBlob(file);
+        }
         const blob = window.URL.createObjectURL(file);
         const link = document.createElement('a');
         link.href = blob;
@@ -83,6 +89,12 @@ export class UploadFileComponent implements OnInit {
         const file = new Blob([res],{
           type: res.type
         });
+
+        //SUPORTE IE
+        const nav = (window.navigator as any);
+        if(window.navigator && nav.msSaveOrOpenBlob){
+          nav.msSaveOrOpenBlob(file);
+        }
         const blob = window.URL.createObjectURL(file);
         const link = document.createElement('a');
         link.href = blob;
