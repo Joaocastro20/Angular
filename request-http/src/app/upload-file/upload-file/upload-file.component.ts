@@ -77,8 +77,18 @@ export class UploadFileComponent implements OnInit {
         link.href = blob;
         link.download = '0EGIlePNyg_Iv9fdRiUpVqzN.pdf';
         link.click();
-        window.URL.revokeObjectURL(blob);
+
+        //SUPORTE FIREFOX
+        link.dispatchEvent(new MouseEvent('click',{
+          bubbles: true,
+          cancelable:true,
+          view:window
+        }));
+
+        setTimeout(()=>{
+          window.URL.revokeObjectURL(blob);
         link.remove();
+        },100);
       }
     );
   }
@@ -100,8 +110,20 @@ export class UploadFileComponent implements OnInit {
         link.href = blob;
         link.download = '0EGIlePNyg_Iv9fdRiUpVqzN.pdf';
         link.click();
-        window.URL.revokeObjectURL(blob);
+
+        //SUPORTE FIREFOX
+        link.dispatchEvent(new MouseEvent('click',{
+          bubbles: true,
+          cancelable:true,
+          view:window
+        }));
+
+        setTimeout(()=>{
+          window.URL.revokeObjectURL(blob);
         link.remove();
+        },100);
+
+        
       }
     );
   }
