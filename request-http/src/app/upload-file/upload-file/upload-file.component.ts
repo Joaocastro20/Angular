@@ -79,11 +79,11 @@ export class UploadFileComponent implements OnInit {
         link.click();
 
         //SUPORTE FIREFOX
-        link.dispatchEvent(new MouseEvent('click',{
-          bubbles: true,
-          cancelable:true,
-          view:window
-        }));
+        // link.dispatchEvent(new MouseEvent('click',{
+        //   bubbles: true,
+        //   cancelable:true,
+        //   view:window
+        // }));
 
         setTimeout(()=>{
           window.URL.revokeObjectURL(blob);
@@ -112,11 +112,11 @@ export class UploadFileComponent implements OnInit {
         link.click();
 
         //SUPORTE FIREFOX
-        link.dispatchEvent(new MouseEvent('click',{
-          bubbles: true,
-          cancelable:true,
-          view:window
-        }));
+        // link.dispatchEvent(new MouseEvent('click',{
+        //   bubbles: true,
+        //   cancelable:true,
+        //   view:window
+        // }));
 
         setTimeout(()=>{
           window.URL.revokeObjectURL(blob);
