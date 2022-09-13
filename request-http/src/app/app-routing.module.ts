@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CursosFormComponent } from './cursos-form/cursos-form.component';
 import { CursosListaComponent } from './cursos-lista/cursos-lista.component';
 import { AuthGuardService } from './guards/auth-guard.service';
+import { LibSearchComponent } from './reactive-search/lib-search/lib-search.component';
 import { UploadFileComponent } from './upload-file/upload-file/upload-file.component';
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'upload', component: UploadFileComponent,
     resolve: { curso: AuthGuardService }
+  },
+  {
+    path: 'busca', component: LibSearchComponent,
+    resolve:{curso: AuthGuardService}
   }
 ];
 

@@ -7,7 +7,8 @@ import { UploadServiceService } from './upload-service.service';
 @Component({
   selector: 'app-upload-file',
   templateUrl: './upload-file.component.html',
-  styleUrls: ['./upload-file.component.scss']
+  styleUrls: ['./upload-file.component.scss'],
+  preserveWhitespaces:true
 })
 export class UploadFileComponent implements OnInit {
 
