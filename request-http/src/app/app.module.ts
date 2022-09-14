@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { CursosListaComponent } from './cursos-lista/cursos-lista.component';
 import { AlertModelComponent } from './shared/alert-model/alert-model.component';
 import { CursosFormComponent } from './cursos-form/cursos-form.component';
+import { CursoPesquisaComponent } from './curso-pesquisa/curso-pesquisa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CursosListaComponent,
     AlertModelComponent,
-    CursosFormComponent
+    CursosFormComponent,
+    CursoPesquisaComponent
   ],
   imports: [
     BrowserModule,

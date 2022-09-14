@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CursoPesquisaComponent } from './curso-pesquisa/curso-pesquisa.component';
 import { CursosFormComponent } from './cursos-form/cursos-form.component';
 import { CursosListaComponent } from './cursos-lista/cursos-lista.component';
 import { AuthGuardService } from './guards/auth-guard.service';
@@ -21,7 +22,7 @@ const routes: Routes = [
     resolve: { curso: AuthGuardService }
   },
   {
-    path: 'busca', component: LibSearchComponent,
+    path: 'busca', component: CursoPesquisaComponent,
     resolve:{curso: AuthGuardService}
   }
 ];

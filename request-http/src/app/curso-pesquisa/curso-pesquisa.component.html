@@ -1,4 +1,4 @@
-<div class="container search-table; topMargin" >
+<div class="container search-table; spaceMargem" >
     <div class="search-box">
       <div class="row">
         <div class="col-md-9">
@@ -23,10 +23,10 @@
             <th>Versão</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let result of results$">
           <tr>
-            <td></td>
-            <td></td>
+            <td>{{result.name}}</td>
+            <td>{{result.version}}</td>
           </tr>
         </tbody>
       </table>

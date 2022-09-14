@@ -14,7 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveSearchRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ReactiveSearchRoutingModule
   ]
 })
 export class ReactiveSearchModule { }
