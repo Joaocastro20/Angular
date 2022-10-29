@@ -42,6 +42,7 @@ import { RouteCursoNaoEncontradoComponent } from './route-cursos/route-curso-nao
 import { RouteAlunosModule } from './route-cursos/route-alunos/route-alunos.module';
 import { AuthService } from './route-cursos/route-login/auth.service';
 import { AuthGuardService } from './route-cursos/guards/auth.guard.service';
+import { CursoTypescriptComponent } from './curso-typescript/curso-typescript.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { AuthGuardService } from './route-cursos/guards/auth.guard.service';
     RouteLoginComponent,
     RouteCursosComponent,
     RouteCursoDetalhesComponent,
-    RouteCursoNaoEncontradoComponent
+    RouteCursoNaoEncontradoComponent,
+    CursoTypescriptComponent
   ],
   imports: [
     BrowserModule,
