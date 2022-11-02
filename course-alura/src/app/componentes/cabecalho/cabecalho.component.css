@@ -1,5 +1,5 @@
 .cabecalho {
-  background: url(/assets/imagens/fundo-cabecalho.png);
+  background: url("C:\Users\joao.abreu\Documents\Angular\course-alura\src\assets\Imagens do curso\fundo-cabecalho.png");
   background-size: cover;
   display: flex;
   align-items: center;
