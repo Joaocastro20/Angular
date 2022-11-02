@@ -12,4 +12,11 @@ export class CriarPostagemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSalvar(){
+    window.alert("entrou")
+  }
+
+  onCancelar(){
+    window.alert("entrou")
+  }
 }
