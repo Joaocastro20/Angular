@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-criar-postagem',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CriarPostagemComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -17,6 +20,6 @@ export class CriarPostagemComponent implements OnInit {
   }
 
   onCancelar(){
-    window.alert("entrou")
+    this.router.navigate([''])
   }
 }
