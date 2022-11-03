@@ -4,3 +4,26 @@
       <button [routerLink]="['novoPost']" class="botao">Adicionar Postagem</button>
   </header>
 </section>
+<div class="mural" *ngIf="postagens.length > 0,else semPostagens">
+    <div *ngFor="let postagem of postagens">
+      <div class="pensamento {{ postagem.modelo }} ff-roboto-mono pensamento-p">
+        <img src="../../../../assets/Imagens do curso/{{postagem.modelo}}.png" alt="Aspas coloridas">
+        <p class="conteudo">{{postagem.conteudo}}</p>
+        <p class="autoria">{{postagem.autoria}}</p>
+        <div class="acoes">
+          <button class="botao-editar">
+            <img src="../../../../assets/Imagens do curso/icone-editar.png" alt="">
+          </button>
+          <button class="botao-excluir">
+            <img src="../../../../assets/Imagens do curso/icone-excluir.png" alt="">
+          </button>
+        </div>
+    </div>
+    </div>
+</div>
+<ng-template #semPostagens>
+    <div class="ff-inter sem-pensamentos">
+      <p>Nao ha postagens!</p>
+    </div>
+</ng-template>
+
