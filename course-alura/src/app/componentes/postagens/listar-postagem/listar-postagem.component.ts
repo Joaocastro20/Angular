@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Postagem } from 'src/app/shared/models/Postagem';
 import { PostServiceService } from 'src/app/shared/services/post-service.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PostServiceService } from 'src/app/shared/services/post-service.service
 })
 export class ListarPostagemComponent implements OnInit {
 
-  listaDePostagens!: any[];
+  listaDePostagens!: Postagem[];
 
   constructor(private service: PostServiceService) {}
 
