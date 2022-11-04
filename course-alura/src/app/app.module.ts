@@ -8,6 +8,7 @@ import { CabecalhoComponent } from './componentes/cabecalho/cabecalho.component'
 import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { CriarPostagemComponent } from './componentes/postagens/criar-postagem/criar-postagem.component';
 import { ListarPostagemComponent } from './componentes/postagens/listar-postagem/listar-postagem.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ListarPostagemComponent } from './componentes/postagens/listar-postagem
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

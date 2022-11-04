@@ -4,8 +4,8 @@
       <button [routerLink]="['novoPost']" class="botao">Adicionar Postagem</button>
   </header>
 </section>
-<div class="mural" *ngIf="postagens.length > 0,else semPostagens">
-    <div *ngFor="let postagem of postagens">
+<div class="mural" *ngIf="listaDePostagens.length > 0,else semPostagens">
+    <div *ngFor="let postagem of listaDePostagens">
       <div class="pensamento {{ postagem.modelo }} ff-roboto-mono "[ngClass]="larguraPostagem(postagem)">
         <img src="../../../../assets/Imagens do curso/{{postagem.modelo}}.png" alt="Aspas coloridas">
         <p class="conteudo">{{postagem.conteudo}}</p>
