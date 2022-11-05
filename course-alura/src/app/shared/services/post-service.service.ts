@@ -23,4 +23,9 @@ export class PostServiceService {
   salvarPost(postagem:FormGroup<any>):Observable<Postagem>{
     return this.http.post<Postagem>(`${this.API}posts`,postagem);
   }
+
+  deletarPost(id:number){
+    return this.http.delete(`${this.API}posts/${id}`);
+  }
+
 }
