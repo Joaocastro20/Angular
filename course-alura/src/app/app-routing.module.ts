@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CriarPostagemComponent } from './componentes/postagens/criar-postagem/criar-postagem.component';
+import { ExcluirPostagemComponent } from './componentes/postagens/excluir-postagem/excluir-postagem.component';
 import { ListarPostagemComponent } from './componentes/postagens/listar-postagem/listar-postagem.component';
 
 const routes: Routes = [
@@ -9,6 +10,9 @@ const routes: Routes = [
   },
   {
     path:'novoPost', component:CriarPostagemComponent
+  },
+  {
+    path:'excluirPost/:id',component:ExcluirPostagemComponent
   }
 ];
 

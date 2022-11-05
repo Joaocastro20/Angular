@@ -28,4 +28,7 @@ export class PostServiceService {
     return this.http.delete(`${this.API}posts/${id}`);
   }
 
+  buscarPorId(id:number):Observable<Postagem>{
+    return this.http.get<Postagem>(`${this.API}posts/${id}`);
+  }
 }

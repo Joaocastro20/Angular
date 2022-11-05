@@ -9,6 +9,7 @@ import { RodapeComponent } from './componentes/rodape/rodape.component';
 import { CriarPostagemComponent } from './componentes/postagens/criar-postagem/criar-postagem.component';
 import { ListarPostagemComponent } from './componentes/postagens/listar-postagem/listar-postagem.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ExcluirPostagemComponent } from './componentes/postagens/excluir-postagem/excluir-postagem.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     CabecalhoComponent,
     RodapeComponent,
     CriarPostagemComponent,
-    ListarPostagemComponent
+    ListarPostagemComponent,
+    ExcluirPostagemComponent
   ],
   imports: [
     BrowserModule,
