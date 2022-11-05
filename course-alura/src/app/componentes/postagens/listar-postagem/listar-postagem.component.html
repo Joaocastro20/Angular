@@ -11,7 +11,7 @@
         <p class="conteudo">{{postagem.conteudo}}</p>
         <p class="autoria">{{postagem.autoria}}</p>
         <div class="acoes">
-          <button class="botao-editar">
+          <button class="botao-editar" routerLink="editarPost/{{postagem.id}}">
             <img src="../../../../assets/Imagens do curso/icone-editar.png" alt="">
           </button>
           <button class="botao-excluir"  routerLink="excluirPost/{{postagem.id}}">

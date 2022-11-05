@@ -31,4 +31,9 @@ export class PostServiceService {
   buscarPorId(id:number):Observable<Postagem>{
     return this.http.get<Postagem>(`${this.API}posts/${id}`);
   }
+
+  editarPost(postagem:Postagem):Observable<Postagem>{
+    let id = postagem.id;
+    return this.http.put<Postagem>(`${this.API}posts/${id}`,postagem);
+  }
 }

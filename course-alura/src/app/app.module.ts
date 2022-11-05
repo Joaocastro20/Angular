@@ -10,6 +10,7 @@ import { CriarPostagemComponent } from './componentes/postagens/criar-postagem/c
 import { ListarPostagemComponent } from './componentes/postagens/listar-postagem/listar-postagem.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExcluirPostagemComponent } from './componentes/postagens/excluir-postagem/excluir-postagem.component';
+import { EditarPostagemComponent } from './componentes/postagens/editar-postagem/editar-postagem.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ExcluirPostagemComponent } from './componentes/postagens/excluir-postag
     RodapeComponent,
     CriarPostagemComponent,
     ListarPostagemComponent,
-    ExcluirPostagemComponent
+    ExcluirPostagemComponent,
+    EditarPostagemComponent
   ],
   imports: [
     BrowserModule,
