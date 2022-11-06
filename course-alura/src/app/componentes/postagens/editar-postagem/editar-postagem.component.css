@@ -3,6 +3,14 @@
   justify-content: center;
 }
 
+.mensagem__erro{
+  font-size: 12px;
+  margin-left: 5px;
+  color: red;
+  margin-top: -25px;
+  margin-bottom: 20px;
+}
+
 .botao {
   margin: 5px;
 }

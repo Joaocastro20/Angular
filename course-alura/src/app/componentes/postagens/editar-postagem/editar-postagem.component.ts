@@ -2,7 +2,7 @@ import { Postagem } from 'src/app/shared/models/Postagem';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostServiceService } from 'src/app/shared/services/post-service.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-editar-postagem',
@@ -25,8 +25,8 @@ export class EditarPostagemComponent implements OnInit {
   ngOnInit(): void {
     this.fb = this.formBuilder.group({
       id:[null],
-      conteudo:[null] ,
-      autoria:[null] ,
+      conteudo:[null,Validators.compose([Validators.required])] ,
+      autoria:[null,Validators.compose([Validators.required,Validators.minLength(10)])] ,
       modelo:['modelo1']
     })
     const id = this.route.snapshot.paramMap.get('id');
@@ -37,6 +37,15 @@ export class EditarPostagemComponent implements OnInit {
       }
     )
   }
+
+  habilitarBotao(){
+    if(this.fb.valid){
+      return 'botao'
+    }else{
+      return 'botao__desabilitado'
+    }
+  }
+
 
   editarPostagem(){
     this.service.editarPost(this.fb.value).subscribe(

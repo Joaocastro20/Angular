@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PostServiceService } from 'src/app/shared/services/post-service.service';
@@ -20,21 +20,35 @@ export class CriarPostagemComponent implements OnInit {
 
   ngOnInit(): void {
     this.fb = this.formBuilder.group({
-      conteudo:[null] ,
-      autoria:[null] ,
+      conteudo:[null,Validators.compose([
+        Validators.required,Validators.pattern(/(.|\s)*\S(.|\s)*/)
+      ])] ,
+      autoria:[null,Validators.compose([
+        Validators.required,Validators.minLength(10)
+      ])] ,
       modelo:['modelo1']
     })
   }
 
   onSalvar(){
-    console.log(this.fb.value)
-    this.service.salvarPost(this.fb.value).subscribe(
-      sucess=> window.alert('Post salvo com sucesso'),
-      error=> window.alert('Erro entre em contato com suporte tecnico')
-    );
+    if(this.fb.valid){
+      this.service.salvarPost(this.fb.value).subscribe(
+        sucess=> window.alert('Post salvo com sucesso'),
+        error=> window.alert('Erro entre em contato com suporte tecnico')
+      );
+    }
+
   }
 
   onCancelar(){
     this.router.navigate([''])
+  }
+
+  habilitarBotao():string{
+    if(this.fb.valid){
+      return 'botao'
+    }else{
+      return 'botao__desabilitado'
+    }
   }
 }
