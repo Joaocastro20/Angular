@@ -40,4 +40,8 @@ export class PostServiceService {
     let id = postagem.id;
     return this.http.put<Postagem>(`${this.API}posts/${id}`,postagem);
   }
+
+  buscarPorTexto(query:string):Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`${this.API}posts?q=${query}`)
+  }
 }

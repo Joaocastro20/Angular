@@ -15,6 +15,8 @@ export class ListarPostagemComponent implements OnInit {
 
   paginaAtual:number = 2 ;
 
+  filtro!:string;
+
   constructor(private service: PostServiceService) {}
 
   ngOnInit(): void {
@@ -38,6 +40,14 @@ export class ListarPostagemComponent implements OnInit {
         if(!listaPostagens.length){
           this.thereAreMorePosts = false;
         }
+      }
+    )
+  }
+
+  onSearch(){
+    this.service.buscarPorTexto(this.filtro).subscribe(
+      postagens=>{
+        this.listaDePostagens = postagens;
       }
     )
   }
