@@ -21,6 +21,9 @@
     </div>
     </div>
 </div>
+<app-botao-pagina [thereAreMorePosts]="thereAreMorePosts" (click)="carregarMaisPostagens()">
+
+</app-botao-pagina>
 <ng-template #semPostagens>
     <div class="ff-inter sem-pensamentos">
       <p>Nao ha postagens!</p>

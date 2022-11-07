@@ -9,12 +9,16 @@ import { PostServiceService } from 'src/app/shared/services/post-service.service
 })
 export class ListarPostagemComponent implements OnInit {
 
+  thereAreMorePosts = true;
+
   listaDePostagens!: Postagem[];
+
+  paginaAtual:number = 2 ;
 
   constructor(private service: PostServiceService) {}
 
   ngOnInit(): void {
-    this.service.listarPost().subscribe((posts:any) => {
+    this.service.listarPost(1).subscribe((posts:any) => {
       this.listaDePostagens = posts;
     });
   }
@@ -25,5 +29,16 @@ export class ListarPostagemComponent implements OnInit {
     } else {
       return 'pensamento-p';
     }
+  }
+
+  carregarMaisPostagens(){
+    this.service.listarPost(this.paginaAtual++).subscribe(
+      listaPostagens =>{
+        this.listaDePostagens.push(...listaPostagens);
+        if(!listaPostagens.length){
+          this.thereAreMorePosts = false;
+        }
+      }
+    )
   }
 }

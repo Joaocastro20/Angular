@@ -1,0 +1,6 @@
+<div class="center" *ngIf="thereAreMorePosts; else notFoundPost">
+  <button class="botao carregar-mais">Carregar Mais...</button>
+</div>
+<ng-template #notFoundPost>
+  <p class="mensagem-center ff-inter">Nao ha mais pensamentos para exibir!</p>
+</ng-template>

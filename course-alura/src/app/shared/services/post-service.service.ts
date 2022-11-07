@@ -1,7 +1,7 @@
 import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from './../../../../../request-http/src/environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Postagem } from '../models/Postagem';
 
@@ -16,8 +16,12 @@ export class PostServiceService {
     private http:HttpClient
   ) { }
 
-  listarPost():Observable<Postagem[]>{
-    return this.http.get<Postagem[]>(`${this.API}posts`);
+  listarPost(pagina:number):Observable<Postagem[]>{
+    let params = new HttpParams()
+    .set("_page",pagina)
+    .set("_limit",6);
+    console.log(params)
+    return this.http.get<Postagem[]>(`${this.API}posts`,{params});
   }
 
   salvarPost(postagem:FormGroup<any>):Observable<Postagem>{

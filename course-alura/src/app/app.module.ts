@@ -11,6 +11,7 @@ import { ListarPostagemComponent } from './componentes/postagens/listar-postagem
 import { HttpClientModule } from '@angular/common/http';
 import { ExcluirPostagemComponent } from './componentes/postagens/excluir-postagem/excluir-postagem.component';
 import { EditarPostagemComponent } from './componentes/postagens/editar-postagem/editar-postagem.component';
+import { BotaoPaginaComponent } from './componentes/postagens/botao-pagina/botao-pagina.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EditarPostagemComponent } from './componentes/postagens/editar-postagem
     CriarPostagemComponent,
     ListarPostagemComponent,
     ExcluirPostagemComponent,
-    EditarPostagemComponent
+    EditarPostagemComponent,
+    BotaoPaginaComponent
   ],
   imports: [
     BrowserModule,
