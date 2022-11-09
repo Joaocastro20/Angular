@@ -27,6 +27,9 @@
           <button class="botao-excluir"  routerLink="excluirPost/{{postagem.id}}">
             <img src="../../../../assets/Imagens do curso/icone-excluir.png" alt="">
           </button>
+          <button class="botao-favorito" (click)="onFavorito(postagem)">
+            <img src="../../../../assets/Imagens do curso/coracao-{{validarBotaoFavorito(postagem)}}.png" alt="">
+          </button>
         </div>
     </div>
     </div>

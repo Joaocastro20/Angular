@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Postagem } from 'src/app/shared/models/Postagem';
 import { PostServiceService } from 'src/app/shared/services/post-service.service';
 
@@ -9,6 +10,8 @@ import { PostServiceService } from 'src/app/shared/services/post-service.service
 })
 export class ListarPostagemComponent implements OnInit {
 
+  postagemFavorito!:Postagem;
+
   thereAreMorePosts = true;
 
   listaDePostagens!: Postagem[];
@@ -17,7 +20,10 @@ export class ListarPostagemComponent implements OnInit {
 
   filtro!:string;
 
-  constructor(private service: PostServiceService) {}
+  constructor(
+    private service: PostServiceService,
+    private router:Router
+    ) {}
 
   ngOnInit(): void {
     this.service.listarPost(1).subscribe((posts:any) => {
@@ -50,5 +56,17 @@ export class ListarPostagemComponent implements OnInit {
         this.listaDePostagens = postagens;
       }
     )
+  }
+
+  validarBotaoFavorito(postagem:Postagem){
+    if(postagem.favorito){
+      return 'ativado';
+    }else{
+      return 'desativado';
+    }
+  }
+
+  onFavorito(postagem:Postagem){
+    this.service.mudarFavorito(postagem).subscribe();
   }
 }

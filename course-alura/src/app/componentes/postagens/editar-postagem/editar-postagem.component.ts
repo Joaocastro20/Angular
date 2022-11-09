@@ -27,7 +27,8 @@ export class EditarPostagemComponent implements OnInit {
       id:[null],
       conteudo:[null,Validators.compose([Validators.required])] ,
       autoria:[null,Validators.compose([Validators.required,Validators.minLength(10)])] ,
-      modelo:['modelo1']
+      modelo:['modelo1'],
+      favorito:[null]
     })
     const id = this.route.snapshot.paramMap.get('id');
     this.service.buscarPorId(parseInt(id!)).subscribe(

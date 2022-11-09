@@ -26,7 +26,8 @@ export class CriarPostagemComponent implements OnInit {
       autoria:[null,Validators.compose([
         Validators.required,Validators.minLength(10)
       ])] ,
-      modelo:['modelo1']
+      modelo:['modelo1'],
+      favorito:[null]
     })
   }
 
