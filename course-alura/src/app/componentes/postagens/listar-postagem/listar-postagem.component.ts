@@ -24,6 +24,8 @@ export class ListarPostagemComponent implements OnInit {
 
   muralFavoritoControl: boolean = false;
 
+  muralFavoritoControlString = 'Meu Mural'
+
   constructor(
     private service: PostServiceService,
     private router:Router
@@ -79,6 +81,7 @@ export class ListarPostagemComponent implements OnInit {
   }
 
   buscarFavoritos(){
+    this.muralFavoritoControlString = 'Favoritos'
     this.muralFavoritoControl = true;
     this.service.buscarPorTexto('true').subscribe(
       postagens=>{
@@ -89,6 +92,7 @@ export class ListarPostagemComponent implements OnInit {
   }
 
   refreshTela(){
+    this.muralFavoritoControlString = 'Meu Mural'
     this.muralFavoritoControl = false;
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.router.onSameUrlNavigation = 'reload';
