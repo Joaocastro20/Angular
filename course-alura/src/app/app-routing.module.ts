@@ -10,6 +10,9 @@ const routes: Routes = [
     path:'',component:ListarPostagemComponent
   },
   {
+    path:'home', component:ListarPostagemComponent
+  },
+  {
     path:'novoPost', component:CriarPostagemComponent
   },
   {

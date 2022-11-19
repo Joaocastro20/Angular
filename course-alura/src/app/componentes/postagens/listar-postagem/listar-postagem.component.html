@@ -13,6 +13,10 @@
       <h2 class="ff-inter">Meu Mural</h2>
       <button [routerLink]="['novoPost']" class="botao">Adicionar Postagem</button>
   </header>
+  <div class="botoes">
+    <button class="botao" (click)="refreshTela()">Mural</button>
+    <button class="botao" (click)="buscarFavoritos()">Favoritos</button>
+  </div>
 </section>
 <div class="mural" *ngIf="listaDePostagens.length > 0,else semPostagens">
     <div *ngFor="let postagem of listaDePostagens">
@@ -34,7 +38,8 @@
     </div>
     </div>
 </div>
-<app-botao-pagina [thereAreMorePosts]="thereAreMorePosts" (click)="carregarMaisPostagens()">
+
+<app-botao-pagina [thereAreMorePosts]="thereAreMorePosts"  (click)="carregarMaisPostagens()" *ngIf="favoritosControl">
 
 </app-botao-pagina>
 <ng-template #semPostagens>

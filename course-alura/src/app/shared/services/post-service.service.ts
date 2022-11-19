@@ -15,7 +15,7 @@ export class PostServiceService {
 
   listarPost(pagina: number): Observable<Postagem[]> {
     let params = new HttpParams().set('_page', pagina).set('_limit', 6);
-    console.log(params);
+
     return this.http.get<Postagem[]>(`${this.API}posts`, { params });
   }
 

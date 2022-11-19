@@ -20,6 +20,10 @@ export class ListarPostagemComponent implements OnInit {
 
   filtro!:string;
 
+  favoritosControl: boolean = true;
+
+  muralFavoritoControl: boolean = false;
+
   constructor(
     private service: PostServiceService,
     private router:Router
@@ -68,5 +72,26 @@ export class ListarPostagemComponent implements OnInit {
 
   onFavorito(postagem:Postagem){
     this.service.mudarFavorito(postagem).subscribe();
+    if(!postagem.favorito && this.muralFavoritoControl == true){
+      this.buscarFavoritos();
+    }
+
+  }
+
+  buscarFavoritos(){
+    this.muralFavoritoControl = true;
+    this.service.buscarPorTexto('true').subscribe(
+      postagens=>{
+        this.listaDePostagens = postagens;
+      }
+    )
+    this.favoritosControl = false;
+  }
+
+  refreshTela(){
+    this.muralFavoritoControl = false;
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigate([this.router.url]);
   }
 }
