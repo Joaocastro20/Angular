@@ -1,5 +1,8 @@
+import { AcoesService } from './../shared/acoes.service';
+import { Acoes, AcoesAPI } from './../shared/models/acoes';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Subscribable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-acoes',
@@ -8,6 +11,15 @@ import { FormControl } from '@angular/forms';
 })
 export class AcoesComponent {
   acoesInput = new FormControl();
+  acoes$ = this.service.getAcoes();
 
-  constructor() {}
+  constructor(
+    private service: AcoesService
+  ) {}
+
+  ngOnInit(){
+  }
+
+  ngOnDestroy(){
+  }
 }
