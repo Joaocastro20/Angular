@@ -2,7 +2,8 @@ import { AcoesService } from './../shared/acoes.service';
 import { Acoes, AcoesAPI } from './../shared/models/acoes';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Subscribable, Subscription } from 'rxjs';
+import { merge, Subscribable, Subscription } from 'rxjs';
+import { map, tap, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-acoes',
@@ -11,7 +12,11 @@ import { Subscribable, Subscription } from 'rxjs';
 })
 export class AcoesComponent {
   acoesInput = new FormControl();
-  acoes$ = this.service.getAcoes();
+  todasAcoes$ = this.service.getAcoes();
+  filtroInput$ = this.acoesInput.valueChanges.pipe(
+    switchMap((valorDigitado)=>this.service.getAcoes(valorDigitado))
+  );
+  acoes$ = merge(this.todasAcoes$,this.filtroInput$);
 
   constructor(
     private service: AcoesService

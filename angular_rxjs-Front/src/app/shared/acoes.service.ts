@@ -1,6 +1,6 @@
 import { AcoesAPI, Acao } from './models/acoes';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {map , tap, pluck} from 'rxjs/operators'
 
@@ -15,8 +15,9 @@ constructor(
   private http: HttpClient
 ) { }
 
-getAcoes(): Observable<AcoesAPI>{
-  return this.http.get<any>(this.API).pipe(
+getAcoes(valor?:string){
+  const params = valor ? new HttpParams().append('valor',valor) : undefined;
+  return this.http.get<any>(this.API,{params}).pipe(
     pluck('payload'),
     map((acoes)=>acoes.sort((acaoA,acaoB)=>this.ordenaPorCodigo(acaoA,acaoB)))
   );
