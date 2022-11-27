@@ -12,7 +12,7 @@ export class JqueryTestesComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    this.modifyDivFilha();
   }
 
   testeJquery(){
@@ -35,6 +35,19 @@ export class JqueryTestesComponent implements OnInit {
     })
   }
   modifyDivFilha(){
-    
+    $(function(){
+      $('.div1').hide()
+                .delay('1000')
+                .fadeIn(1000)
+                .css({color:'green','font-size':'30px'})
+      $('.div1 h2').hide()
+                   .delay('2000')
+                   .fadeIn(1000)
+                   .css({color:'blue'})
+      $('.div1 p').hide()
+                   .delay('3000')
+                   .fadeIn(1000)
+                   .css({color:'blue'})
+    })
   }
 }
