@@ -13,6 +13,7 @@ export class JqueryTestesComponent implements OnInit {
 
   ngOnInit(): void {
     this.modifyDivFilha();
+    this.testeErros();
   }
 
   testeJquery(){
@@ -48,6 +49,12 @@ export class JqueryTestesComponent implements OnInit {
                    .delay('3000')
                    .fadeIn(1000)
                    .css({color:'blue'})
+    })
+  }
+  testeErros(){
+    $(function(){
+      $('img').attr('src','http://lorempixel.com.br/150/150/?1')
+      // $('img').width($(window).width())
     })
   }
 }
