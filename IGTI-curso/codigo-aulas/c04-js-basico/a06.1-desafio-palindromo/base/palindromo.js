@@ -9,4 +9,10 @@ palindromo('x'); // é palíndromo
 
 function palindromo(s) {
   // implementar.
+  let inverso = s.split('').reverse().join('')
+  if(s == inverso){
+    console.log('é palindromo')
+  }else{
+    console.log('nao é palindromo')
+  }
 }
