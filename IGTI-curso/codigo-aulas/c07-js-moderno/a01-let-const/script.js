@@ -19,24 +19,24 @@ teste();
 */
 
 // 2. Usar atribuição via desestruturação
-/*
-let primos = [2, 3, 5, 7, 11, 13];
 
-let curso = {
-  nome: "Bootcamp Front End",
-  modulos: 4,
-  presencial: false,
-  turma: 1,
-};
+// let primos = [2, 3, 5, 7, 11, 13];
 
-let [p1, p2, ...resto] = primos;
+// let curso = {
+//   nome: "Bootcamp Front End",
+//   modulos: 4,
+//   presencial: false,
+//   turma: 1,
+// };
 
-let { nome: nomeCurso, turma, ...outrosCampos } = curso;
+// let [p1, p2, ...resto] = primos;
 
-function imprime({ nome }) {
-  console.log(nome);
-}
-*/
+// let { nome: nomeCurso, turma, ...outrosCampos } = curso;
+
+// function imprime({ nome }) {
+//   console.log(nome);
+// }
+
 
 
 // 3. Spread operator
@@ -68,10 +68,10 @@ let curso3 = {
 
 // 4. Template literals
 
-let a = 2, b = 3;
-let soma = a + b;
+// let a = 2, b = 3;
+// let soma = a + b;
 
-console.log(a + " + " + b + " \n= " + soma);
+// console.log(a + " + " + b + " \n= " + soma);
 
-console.log(`${a} + ${b} 
-= ${soma}`);
+// console.log(`${a} + ${b} 
+// = ${soma}`);

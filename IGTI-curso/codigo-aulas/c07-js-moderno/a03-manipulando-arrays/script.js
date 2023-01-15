@@ -21,7 +21,7 @@ let republicans = usPresidents
 
 
 // 5. find
-let p1 = usPresidents.find((item) => item.party == "xxxx");
+let p1 = usPresidents.find((item) => item.party == "Republican");
 
 
 // 6. sort
