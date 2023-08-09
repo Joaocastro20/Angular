@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, map, of, tap, filter } from 'rxjs';
+import { of} from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-tap',

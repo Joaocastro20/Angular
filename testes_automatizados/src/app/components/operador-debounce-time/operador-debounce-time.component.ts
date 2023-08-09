@@ -1,5 +1,6 @@
+import { debounceTime } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { debounceTime, fromEvent } from 'rxjs';
+import {  fromEvent } from 'rxjs';
 
 @Component({
   selector: 'app-operador-debounce-time',

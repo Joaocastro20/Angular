@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, mapTo } from 'rxjs';
+import { fromEvent } from 'rxjs';
+import {  mapTo } from 'rxjs/operators';
 
 @Component({
   selector: 'app-operador-map-to',

@@ -1,5 +1,7 @@
-import { interval, skip } from 'rxjs';
+import { interval } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { skip } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-skip',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { isEmpty, of } from 'rxjs';
+import {  of } from 'rxjs';
+import { isEmpty } from 'rxjs/operators';
 
 @Component({
   selector: 'app-operador-is-empty',

@@ -1,5 +1,7 @@
-import { delay, fromEvent } from 'rxjs';
+import {  fromEvent } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-delay',

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { delayWhen, interval, map, retryWhen, tap, timer } from 'rxjs';
+import {  interval,    timer } from 'rxjs';
+import { map, retryWhen, tap, delayWhen } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-retry-when',

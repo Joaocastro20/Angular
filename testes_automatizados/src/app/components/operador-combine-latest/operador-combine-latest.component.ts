@@ -1,5 +1,6 @@
+import { delay, startWith } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { combineLatest, delay, of, startWith, timer } from 'rxjs';
+import { combineLatest, of, timer } from 'rxjs';
 
 @Component({
   selector: 'app-operador-combine-latest',
@@ -15,7 +16,7 @@ export class OperadorCombineLatestComponent implements OnInit {
       b: of(5).pipe(delay(5000), startWith(0)),
       c: of(10).pipe(delay(10000), startWith(0)),
     };
-    const combined = combineLatest(observables);
-    combined.subscribe((value) => console.log(value));
+    // const combined = combineLatest(observables);
+    // combined.subscribe((value) => console.log(value));
   }
 }

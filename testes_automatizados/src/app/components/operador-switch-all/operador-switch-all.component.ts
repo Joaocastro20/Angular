@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, interval, map, switchAll, tap } from 'rxjs';
+import { fromEvent, interval } from 'rxjs';
+import { map, switchAll, tap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-switch-all',

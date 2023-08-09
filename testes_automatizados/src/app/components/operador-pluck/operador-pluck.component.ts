@@ -1,5 +1,6 @@
+import { pluck } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
-import { from, pluck } from 'rxjs';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-operador-pluck',

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, interval, withLatestFrom } from 'rxjs';
+import { fromEvent, interval } from 'rxjs';
+import { withLatestFrom } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-with-lastest-from',

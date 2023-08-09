@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { fromEvent, interval, takeWhile } from 'rxjs';
+import { fromEvent, interval } from 'rxjs';
+import { takeWhile } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-take-while',

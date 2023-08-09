@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, map, share, take, tap } from 'rxjs';
+import { interval } from 'rxjs';
+import {  share, take, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-operador-share',

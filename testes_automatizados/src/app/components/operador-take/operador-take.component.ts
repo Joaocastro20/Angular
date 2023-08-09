@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { of, take, interval } from 'rxjs';
+import { of, interval } from 'rxjs';
+import { take } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-take',

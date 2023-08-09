@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { concatMap, of, timer } from 'rxjs';
+import {  of, timer } from 'rxjs';
+import { concatMap } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-time',

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { map, startWith, timer } from 'rxjs';
+import {  timer } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-start-with',

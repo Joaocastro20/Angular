@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { find, fromEvent } from 'rxjs';
+import {  fromEvent } from 'rxjs';
+import { find } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-find',

@@ -1,4 +1,5 @@
-import { from, map } from 'rxjs';
+import { from } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

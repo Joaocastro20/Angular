@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, mergeMap, of, retry, throwError } from 'rxjs';
+import { interval, of, throwError } from 'rxjs';
+import { mergeMap, retry } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-operador-retry',
