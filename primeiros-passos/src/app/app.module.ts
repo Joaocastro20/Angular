@@ -43,6 +43,7 @@ import { RouteAlunosModule } from './route-cursos/route-alunos/route-alunos.modu
 import { AuthService } from './route-cursos/route-login/auth.service';
 import { AuthGuardService } from './route-cursos/guards/auth.guard.service';
 import { CursoTypescriptComponent } from './curso-typescript/curso-typescript.component';
+import { BotoesCssComponent } from './botoes-css/botoes-css.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { CursoTypescriptComponent } from './curso-typescript/curso-typescript.co
     RouteCursosComponent,
     RouteCursoDetalhesComponent,
     RouteCursoNaoEncontradoComponent,
-    CursoTypescriptComponent
+    CursoTypescriptComponent,
+    BotoesCssComponent
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,7 @@ import { CursoTypescriptComponent } from './curso-typescript/curso-typescript.co
     AppRoutingModule,
     RouteAlunosModule
     //routing
-    
+
   ],
   providers: [cService,LogService,RouteCursosService,AuthService,AuthGuardService],
   bootstrap: [AppComponent]
