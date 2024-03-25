@@ -17,7 +17,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ProductCrudComponent } from './views/product-crud/product-crud.component';
 import { RedDirective } from './directives/red.directive';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component'
-
+import { ProductServiceService } from './product-service.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -38,9 +39,10 @@ import { ProductCreateComponent } from './components/product/product-create/prod
     MatListModule,
     MatSidenavModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [ProductServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
