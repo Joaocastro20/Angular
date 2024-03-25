@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -19,6 +20,11 @@ import { RedDirective } from './directives/red.directive';
 import { ProductCreateComponent } from './components/product/product-create/product-create.component'
 import { ProductServiceService } from './product-service.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule} from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule} from '@angular/material/input'
+import { MatTableModule} from '@angular/material/table'
+import {Component} from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -40,7 +46,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSidenavModule,
     MatCardModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [ProductServiceService],
   bootstrap: [AppComponent]

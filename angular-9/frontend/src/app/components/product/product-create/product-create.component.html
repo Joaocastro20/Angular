@@ -1,1 +1,15 @@
-<mat-card> tes </mat-card>
+<mat-card>
+  <mat-card-title>Novo Produto</mat-card-title>
+  <form>
+    <mat-form-field>
+        <input matInput type="text" placeholder="Nome"
+        [(ngModel)]="product.name" name="name">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Preço"
+       [(ngModel)]="product.price" name="price">
+      </mat-form-field>
+  </form>
+  
+  <button mat-raised-button (click)="cadastrar()">Salvar</button>
+</mat-card>
