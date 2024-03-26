@@ -1,0 +1,6 @@
+<mat-card>
+    <mat-card-title>Registros</mat-card-title>
+    <li *ngFor="let product of lstProducts;index as i">
+         {{i}} -> {{product.name}} -> {{product.price}}
+    </li>
+</mat-card>
