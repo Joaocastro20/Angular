@@ -11,6 +11,10 @@ const routes: Routes = [
   },
   { path: "products", component: ProductCrudComponent },
   { path: "products/create", component: ProductCreateComponent },
+  {
+    path: "products/create/:id/:name/:price",
+    component: ProductCreateComponent
+  },
 ];
 
 @NgModule({

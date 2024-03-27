@@ -1,9 +1,9 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Caneta BIC Preta",
-      "price": 5.89
+      "name": "Caneta BIC Azul",
+      "price": "1",
+      "id": 1
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
     },
     {
       "name": "Lapis Preto Básico",
-      "price": "1.50",
+      "price": "25.5",
       "id": 4
     },
     {
@@ -44,31 +44,6 @@
       "name": "uatarreu",
       "price": "899865",
       "id": 19
-    },
-    {
-      "name": "Joao castro",
-      "price": "01121212",
-      "id": 20
-    },
-    {
-      "name": "abc",
-      "price": "787878",
-      "id": 21
-    },
-    {
-      "name": "abajus",
-      "price": "0.9",
-      "id": 23
-    },
-    {
-      "name": "Android 11",
-      "price": "78000",
-      "id": 24
-    },
-    {
-      "name": "Android 12",
-      "price": "586",
-      "id": 25
     }
   ]
 }

@@ -4,6 +4,7 @@ import { Products } from '../product-create/product.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-read',
@@ -18,7 +19,10 @@ export class ProductReadComponent implements OnInit {
   @ViewChild(MatPaginator) paginatior !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private service: ProductServiceService) { }
+  constructor(
+    private service: ProductServiceService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
     this.listarRegistros()
@@ -38,6 +42,13 @@ export class ProductReadComponent implements OnInit {
     this.service.delete(event).subscribe(() => 
       this.listarRegistros()
     )
+  }
+
+  protected editcustomer(element: Products){
+    // this.service.update(element).subscribe(() => 
+    //   this.listarRegistros()
+    // )
+    this.router.navigate(['products/create/{{}}'])
   }
 
 }

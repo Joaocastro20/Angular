@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title>New Product</mat-card-title>
+  <mat-card-title>{{title}}</mat-card-title>
   <form>
     <mat-form-field>
         <input matInput type="text" placeholder="Name"
@@ -11,6 +11,7 @@
       </mat-form-field>
   </form>
   
-  <button mat-raised-button (click)="cadastrar()" color="primary">Save</button>
+  <button *ngIf="title == 'New Product'" mat-raised-button (click)="cadastrar()" color="primary">Save</button>
+  <button *ngIf="title == 'Edit Product'" mat-raised-button (click)="Editar()" color="primary">Edit</button>
   <button mat-raised-button (click)="voltar()">Cancel</button>
 </mat-card>

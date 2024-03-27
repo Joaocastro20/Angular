@@ -37,4 +37,9 @@ export class ProductServiceService {
     return this.http.delete(url)
   }
 
+  public update(obj: Products, id: any){
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.put(url,obj )
+  }
+
 }
