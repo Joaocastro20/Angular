@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductServiceService } from 'src/app/product-service.service';
 import { Products } from '../product-create/product.model';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-product-read',
@@ -10,6 +13,10 @@ import { Products } from '../product-create/product.model';
 export class ProductReadComponent implements OnInit {
 
   lstProducts?: Products[]
+  displayedColumns: string[] = ["id", "name", "price"];
+  dataSource: any;
+  @ViewChild(MatPaginator) paginatior !: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
 
   constructor(private service: ProductServiceService) { }
 
@@ -19,7 +26,11 @@ export class ProductReadComponent implements OnInit {
 
   protected listarRegistros(){
     this.service.listar().subscribe(
-      (res) => this.lstProducts = res
+      (res) =>{
+        this.dataSource = new MatTableDataSource<Products>(res)
+        this.dataSource.paginator = this.paginatior;
+        this.dataSource.sort = this.sort;
+      } 
     )
   }
 
