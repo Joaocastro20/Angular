@@ -13,7 +13,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class ProductReadComponent implements OnInit {
 
   lstProducts?: Products[]
-  displayedColumns: string[] = ["id", "name", "price"];
+  displayedColumns: string[] = ["id", "name", "price", "action"];
   dataSource: any;
   @ViewChild(MatPaginator) paginatior !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
@@ -31,6 +31,12 @@ export class ProductReadComponent implements OnInit {
         this.dataSource.paginator = this.paginatior;
         this.dataSource.sort = this.sort;
       } 
+    )
+  }
+
+  protected delete(event: any){
+    this.service.delete(event).subscribe(() => 
+      this.listarRegistros()
     )
   }
 
