@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "Caneta BIC Azul",
-      "price": "1",
+      "price": "158",
       "id": 1
     },
     {
@@ -21,29 +21,24 @@
       "id": 4
     },
     {
-      "name": "JOAO ",
-      "price": "10.1",
-      "id": 14
+      "name": "Controle A2",
+      "price": "59.50",
+      "id": 5
     },
     {
-      "name": "tst",
-      "price": "25",
-      "id": 15
+      "name": "Xbox Series S",
+      "price": "1800",
+      "id": 6
     },
     {
-      "name": "tststs",
-      "price": "026",
-      "id": 16
+      "name": "PS4",
+      "price": "500",
+      "id": 7
     },
     {
-      "name": "testando",
-      "price": "5454545",
-      "id": 17
-    },
-    {
-      "name": "uatarreu",
-      "price": "899865",
-      "id": 19
+      "name": "Palito",
+      "price": "0.5",
+      "id": 8
     }
   ]
 }
