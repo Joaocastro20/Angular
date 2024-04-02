@@ -30,6 +30,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { registerLocaleData } from '@angular/common';
 import  localePt  from '@angular/common/locales/pt';
+import { ImplementationsComponent } from './views/implementations/implementations.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 registerLocaleData(localePt)
 
@@ -43,7 +45,8 @@ registerLocaleData(localePt)
     ProductCrudComponent,
     RedDirective,
     ProductCreateComponent,
-    ProductReadComponent
+    ProductReadComponent,
+    ImplementationsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ registerLocaleData(localePt)
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSlideToggleModule
   ],
   providers: [
     ProductServiceService,
