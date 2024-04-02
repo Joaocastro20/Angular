@@ -32,6 +32,7 @@ import { registerLocaleData } from '@angular/common';
 import  localePt  from '@angular/common/locales/pt';
 import { ImplementationsComponent } from './views/implementations/implementations.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AdventureTimeComponent } from './components/css-pictures/adventure-time/adventure-time.component';
 
 registerLocaleData(localePt)
 
@@ -46,7 +47,8 @@ registerLocaleData(localePt)
     RedDirective,
     ProductCreateComponent,
     ProductReadComponent,
-    ImplementationsComponent
+    ImplementationsComponent,
+    AdventureTimeComponent
   ],
   imports: [
     BrowserModule,
