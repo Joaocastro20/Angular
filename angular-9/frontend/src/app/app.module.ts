@@ -33,6 +33,7 @@ import  localePt  from '@angular/common/locales/pt';
 import { ImplementationsComponent } from './views/implementations/implementations.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AdventureTimeComponent } from './components/css-pictures/adventure-time/adventure-time.component';
+import { JavascriptFuncionalComponent } from './views/javascript-funcional/javascript-funcional.component';
 
 registerLocaleData(localePt)
 
@@ -48,7 +49,8 @@ registerLocaleData(localePt)
     ProductCreateComponent,
     ProductReadComponent,
     ImplementationsComponent,
-    AdventureTimeComponent
+    AdventureTimeComponent,
+    JavascriptFuncionalComponent
   ],
   imports: [
     BrowserModule,
