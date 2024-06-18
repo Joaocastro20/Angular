@@ -1,26 +1,45 @@
+<mat-form-field>
+  <input
+    matInput
+    type="number"
+    placeholder="Numero 1"
+    [(ngModel)]="formulario.numero1"
+    name="numero1"
+  />
+</mat-form-field>
 
-  <mat-form-field>
-    <input
-      matInput
-      type="number"
-      placeholder="Numero 1"
-      [(ngModel)]="formulario.numero1"
-      name="numero1"
-    />
-  </mat-form-field>
-
-  <mat-form-field style="padding-left: 10px; padding-right: 10px;">
-    <input
-      matInput
-      type="number"
-      placeholder="Numero 2"
-      [(ngModel)]="formulario.numero2"
-      name="numero2"
-    />
-  </mat-form-field>
+<mat-form-field style="padding-left: 10px; padding-right: 10px">
+  <input
+    matInput
+    type="number"
+    placeholder="Numero 2"
+    [(ngModel)]="formulario.numero2"
+    name="numero2"
+  />
+</mat-form-field>
 
 <button mat-raised-button (click)="onClickCaucular()" color="primary">
   Somar
 </button>
 {{ formulario.resultado }}
 <!-- ================================================================================================ -->
+<button mat-raised-button (click)="onArrowFunction()" color="primary">
+  Acionar
+</button>
+
+{{ arrowFuc }}
+<!-- =================================================================================================== -->
+<button  mat-raised-button (click)="onExecSomar()" color="primary">
+  Exec Somar
+</button>
+<button style="margin-left: 10px;" mat-raised-button (click)="onExecSub()" color="primary">
+  Exec Subtrair
+</button>
+<!-- =================================================================================================== -->
+<div style="display: block;margin-top: 25px;">
+  <input  type="file" (change)="onFileSelected($event)">
+<div *ngIf="fileContent">
+  <h3>Conteúdo do Arquivo:</h3>
+  <pre>{{ fileContent }}</pre>
+</div>
+</div>
