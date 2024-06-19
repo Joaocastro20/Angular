@@ -12,9 +12,16 @@ export class JavascriptFuncionalComponent implements OnInit {
     numero2: 0,
     resultado: 0,
   };
+  carrinhoGlobal = [
+    { nome: "Caneta", qtde: 10, preco: 7.99 },
+    { nome: "Impressora", qtde: 0, preco: 649.5 },
+    { nome: "Caderno", qtde: 4, preco: 27.1 },
+    { nome: "Lapis", qtde: 3, preco: 5.82 },
+    { nome: "Tesoura", qtde: 1, preco: 19.2 },
+  ];
 
   arrowFuc?: string;
-  fileContent: any= null
+  fileContent: any = null;
 
   constructor() {}
 
@@ -80,9 +87,9 @@ export class JavascriptFuncionalComponent implements OnInit {
     );
   }
   // =========================================================================================
-  onFileSelected(event: Event){
+  onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
-    if(!input.files?.length){
+    if (!input.files?.length) {
       return;
     }
     const file = input.files[0];
@@ -91,6 +98,47 @@ export class JavascriptFuncionalComponent implements OnInit {
       this.fileContent = e.target?.result;
     };
 
-    reader.readAsText(file)
+    reader.readAsText(file);
+  }
+  // ==========================================================================================
+  funcaoMapear() {
+    let array = [3, 2, 4, 5, 6, 3];
+    const dobrar = (n: number, i: number, a: number[]) => n * 2 + i + a.length;
+    console.log(array.map(dobrar));
+
+    let nomes = ["Alice", "Bruno", "Carla"];
+    const first = (texto: string) => texto[0];
+    console.log(nomes.map(first));
+
+    const carrinho = [
+      { nome: "Caneta", qtde: 10, preco: 7.99 },
+      { nome: "Impressora", qtde: 0, preco: 649.5 },
+      { nome: "Caderno", qtde: 4, preco: 27.1 },
+      { nome: "Lapis", qtde: 3, preco: 5.82 },
+      { nome: "Tesoura", qtde: 1, preco: 19.2 },
+    ];
+    const nomesItem = (item: any) => item.nome;
+    const precoPorQtde = (item: any) => item.qtde * item.preco;
+    console.log(carrinho.map(nomesItem), carrinho.map(precoPorQtde));
+    console.log("teste ->", this.mapPropio(carrinho, nomesItem));
+  }
+  //=========================================================================================
+  //Map Construcao
+  mapPropio(array: any[], fn: any) {
+    const novoArray: any[] = [];
+    for (let i = 0; i < array.length; i++) {
+      novoArray.push(fn(array[i], i, array));
+    }
+    return novoArray;
+  }
+  //===========================================================================================
+  funcaoFiltrar() {
+    const array = [3, 2, 5, 6, 8, 4, 1];
+    const indPar = (item: number) => item % 2 == 0;
+    console.log(array.filter(indPar));
+    const nomesItensValidos = (item: any) => item.qtde > 0;
+    console.log(
+      this.carrinhoGlobal.filter(nomesItensValidos).map((item) => item.nome)
+    );
   }
 }
